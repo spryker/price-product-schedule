@@ -140,9 +140,9 @@ class PriceProductScheduleEnableFinder implements PriceProductScheduleEnableFind
     }
 
     /**
-     * @param list<int> $priceProductScheduleIds
+     * @param array<int> $priceProductScheduleIds
      *
-     * @return list<\Generated\Shared\Transfer\PriceProductScheduleTransfer>
+     * @return array<\Generated\Shared\Transfer\PriceProductScheduleTransfer>
      */
     protected function findPriceProductSchedulesToEnableByPriceProductScheduleIds(array $priceProductScheduleIds): array
     {
@@ -162,7 +162,7 @@ class PriceProductScheduleEnableFinder implements PriceProductScheduleEnableFind
     /**
      * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery $priceProductScheduleQuery
      *
-     * @return list<int>
+     * @return array<int>
      */
     protected function getPriceProductScheduleIds(SpyPriceProductScheduleQuery $priceProductScheduleQuery): array
     {
