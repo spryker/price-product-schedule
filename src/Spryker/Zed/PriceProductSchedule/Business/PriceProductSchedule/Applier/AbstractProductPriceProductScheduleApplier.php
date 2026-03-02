@@ -38,12 +38,6 @@ class AbstractProductPriceProductScheduleApplier implements AbstractProductPrice
      */
     protected $priceProductScheduleDisabler;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleRepositoryInterface $priceProductScheduleRepository
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Executor\PriceProductScheduleApplyTransactionExecutorInterface $applyScheduledPriceTransactionExecutor
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleDisablerInterface $priceProductScheduleDisabler
-     */
     public function __construct(
         PriceProductScheduleToStoreFacadeInterface $storeFacade,
         PriceProductScheduleRepositoryInterface $priceProductScheduleRepository,
@@ -56,11 +50,6 @@ class AbstractProductPriceProductScheduleApplier implements AbstractProductPrice
         $this->priceProductScheduleDisabler = $priceProductScheduleDisabler;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return void
-     */
     public function applyScheduledPrices(PriceProductScheduleTransfer $priceProductScheduleTransfer): void
     {
         $this->getTransactionHandler()->handleTransaction(function () use ($priceProductScheduleTransfer) {
@@ -68,11 +57,6 @@ class AbstractProductPriceProductScheduleApplier implements AbstractProductPrice
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return void
-     */
     protected function executeApplyScheduledPrices(PriceProductScheduleTransfer $priceProductScheduleTransfer): void
     {
         $priceProductTransfer = $priceProductScheduleTransfer->getPriceProductOrFail();

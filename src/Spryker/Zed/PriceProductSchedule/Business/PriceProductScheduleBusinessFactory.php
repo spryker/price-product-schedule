@@ -90,9 +90,6 @@ use Spryker\Zed\PriceProductSchedule\PriceProductScheduleDependencyProvider;
  */
 class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleCleanerInterface
-     */
     public function createPriceProductScheduleCleaner(): PriceProductScheduleCleanerInterface
     {
         return new PriceProductScheduleCleaner(
@@ -100,9 +97,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleApplierInterface
-     */
     public function createPriceProductScheduleApplier(): PriceProductScheduleApplierInterface
     {
         return new PriceProductScheduleApplier(
@@ -113,9 +107,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Applier\AbstractProductPriceProductScheduleApplierInterface
-     */
     public function createAbstractProductPriceProductScheduleApplier(): AbstractProductPriceProductScheduleApplierInterface
     {
         return new AbstractProductPriceProductScheduleApplier(
@@ -126,9 +117,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Applier\ConcreteProductPriceProductScheduleApplierInterface
-     */
     public function createConcreteProductPriceProductScheduleApplier(): ConcreteProductPriceProductScheduleApplierInterface
     {
         return new ConcreteProductPriceProductScheduleApplier(
@@ -139,9 +127,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Resolver\PriceProductScheduleApplierByProductTypeResolverInterface
-     */
     public function createPriceProductScheduleApplierByProductTypeResolver(): PriceProductScheduleApplierByProductTypeResolverInterface
     {
         return new PriceProductScheduleApplierByProductTypeResolver(
@@ -150,9 +135,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Executor\PriceProductScheduleApplyTransactionExecutorInterface
-     */
     public function createPriceProductScheduleApplyTransactionExecutor(): PriceProductScheduleApplyTransactionExecutorInterface
     {
         return new PriceProductScheduleApplyTransactionExecutor(
@@ -162,9 +144,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleDisablerInterface
-     */
     public function createPriceProductScheduleDisabler(): PriceProductScheduleDisablerInterface
     {
         return new PriceProductScheduleDisabler(
@@ -176,9 +155,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProduct\PriceProductFallbackFinderInterface
-     */
     public function createPriceProductFallbackFinder(): PriceProductFallbackFinderInterface
     {
         return new PriceProductFallbackFinder(
@@ -187,9 +163,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProduct\PriceProductUpdaterInterface
-     */
     public function createProductPriceUpdater(): PriceProductUpdaterInterface
     {
         return new PriceProductUpdater(
@@ -198,9 +171,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\PriceProductScheduleListCreatorInterface
-     */
     public function createPriceProductScheduleListCreator(): PriceProductScheduleListCreatorInterface
     {
         return new PriceProductScheduleListCreator(
@@ -210,9 +180,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\Expander\PriceProductScheduleListUserExpanderInterface
-     */
     public function createPriceProductScheduleListExpander(): PriceProductScheduleListUserExpanderInterface
     {
         return new PriceProductScheduleListUserExpander(
@@ -220,9 +187,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\PriceProductScheduleListUpdaterInterface
-     */
     public function createPriceProductScheduleListUpdater(): PriceProductScheduleListUpdaterInterface
     {
         return new PriceProductScheduleListUpdater(
@@ -230,9 +194,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\PriceProductScheduleListImporterInterface
-     */
     public function createPriceProductScheduleListImporter(): PriceProductScheduleListImporterInterface
     {
         return new PriceProductScheduleListImporter(
@@ -243,25 +204,16 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleImportValidatorInterface
-     */
     public function createPriceProductScheduleImportValidator(): PriceProductScheduleImportValidatorInterface
     {
         return new PriceProductScheduleImportValidator($this->createPriceProductScheduleImportDataValidatorList());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleMapperInterface
-     */
     public function createPriceProductScheduleMapper(): PriceProductScheduleMapperInterface
     {
         return new PriceProductScheduleMapper();
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleImportMapperInterface
-     */
     public function createPriceProductScheduleImportMapper(): PriceProductScheduleImportMapperInterface
     {
         return new PriceProductScheduleImportMapper($this->getConfig());
@@ -280,17 +232,11 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         ];
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\DataExpander\PriceProductTransferDataExpanderInterface
-     */
     public function createPriceProductTransferPriceDimensionDataExpander(): PriceProductTransferDataExpanderInterface
     {
         return new PriceProductTransferPriceDimensionDataExpander($this->getConfig());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\DataExpander\PriceProductTransferDataExpanderInterface
-     */
     public function createPriceProductTransferMoneyValueDataExpander(): PriceProductTransferDataExpanderInterface
     {
         return new PriceProductTransferMoneyValueDataExpander(
@@ -299,57 +245,36 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\DataExpander\PriceProductTransferDataExpanderInterface
-     */
     public function createPriceProductTransferPriceTypeDataExpander(): PriceProductTransferDataExpanderInterface
     {
         return new PriceProductTransferPriceTypeDataExpander($this->createPriceTypeFinder());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\DataExpander\PriceProductTransferDataExpanderInterface
-     */
     public function createPriceProductTransferProductDataExpander(): PriceProductTransferDataExpanderInterface
     {
         return new PriceProductTransferProductDataExpander($this->createProductFinder());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\Currency\CurrencyFinderInterface
-     */
     public function createCurrencyFinder(): CurrencyFinderInterface
     {
         return new CurrencyFinder($this->getCurrencyFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\Store\StoreFinderInterface
-     */
     public function createStoreFinder(): StoreFinderInterface
     {
         return new StoreFinder($this->getStoreFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceType\PriceTypeFinderInterface
-     */
     public function createPriceTypeFinder(): PriceTypeFinderInterface
     {
         return new PriceTypeFinder($this->getPriceProductFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\Product\ProductFinderInterface
-     */
     public function createProductFinder(): ProductFinderInterface
     {
         return new ProductFinder($this->getProductFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\PriceProductScheduleListFinderInterface
-     */
     public function createPriceProductScheduleListFinder(): PriceProductScheduleListFinderInterface
     {
         return new PriceProductScheduleListFinder(
@@ -358,57 +283,36 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\ImportDataValidator\ImportDataValidatorInterface
-     */
     public function createCurrencyDataValidator(): ImportDataValidatorInterface
     {
         return new CurrencyDataValidator($this->createCurrencyFinder());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\ImportDataValidator\ImportDataValidatorInterface
-     */
     public function createDateDataValidator(): ImportDataValidatorInterface
     {
         return new DateDataValidator();
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\ImportDataValidator\ImportDataValidatorInterface
-     */
     public function createPriceDataValidator(): ImportDataValidatorInterface
     {
         return new PriceDataValidator();
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\ImportDataValidator\ImportDataValidatorInterface
-     */
     public function createPriceTypeDataValidator(): ImportDataValidatorInterface
     {
         return new PriceTypeDataValidator($this->createPriceTypeFinder());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\ImportDataValidator\ImportDataValidatorInterface
-     */
     public function createProductDataValidator(): ImportDataValidatorInterface
     {
         return new ProductDataValidator($this->createProductFinder());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\ImportDataValidator\ImportDataValidatorInterface
-     */
     public function createStoreDataValidator(): ImportDataValidatorInterface
     {
         return new StoreDataValidator($this->createStoreFinder());
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\ImportDataValidator\ImportDataValidatorInterface
-     */
     public function createUniqueDataValidator(): ImportDataValidatorInterface
     {
         return new UniqueDataValidator(
@@ -433,9 +337,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         ];
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleCsvReaderInterface
-     */
     public function createPriceProductScheduleCsvReader(): PriceProductScheduleCsvReaderInterface
     {
         return new PriceProductScheduleCsvReader(
@@ -444,9 +345,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleCsvValidatorInterface
-     */
     public function createPriceProductScheduleCsvValidator(): PriceProductScheduleCsvValidatorInterface
     {
         return new PriceProductScheduleCsvValidator(
@@ -455,17 +353,11 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToUserFacadeInterface
-     */
     public function getUserFacade(): PriceProductScheduleToUserFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::FACADE_USER);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Remover\PriceProductScheduleRemoverInterface
-     */
     public function createPriceProductScheduleRemover(): PriceProductScheduleRemoverInterface
     {
         return new PriceProductScheduleRemover(
@@ -476,9 +368,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Updater\PriceProductScheduleUpdaterInterface
-     */
     public function createPriceProductScheduleUpdater(): PriceProductScheduleUpdaterInterface
     {
         return new PriceProductScheduleUpdater(
@@ -487,9 +376,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Creator\PriceProductScheduleCreatorInterface
-     */
     public function createPriceProductScheduleCreator(): PriceProductScheduleCreatorInterface
     {
         return new PriceProductScheduleCreator(
@@ -500,9 +386,6 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\Remover\PriceProductScheduleListRemoverInterface
-     */
     public function createPriceProductScheduleListRemover(): PriceProductScheduleListRemoverInterface
     {
         return new PriceProductScheduleListRemover(
@@ -513,41 +396,26 @@ class PriceProductScheduleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPriceProductFacadeInterface
-     */
     public function getPriceProductFacade(): PriceProductScheduleToPriceProductFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::FACADE_PRICE_PRODUCT);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToStoreFacadeInterface
-     */
     public function getStoreFacade(): PriceProductScheduleToStoreFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::FACADE_STORE);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToProductFacadeInterface
-     */
     public function getProductFacade(): PriceProductScheduleToProductFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::FACADE_PRODUCT);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToCurrencyFacadeInterface
-     */
     public function getCurrencyFacade(): PriceProductScheduleToCurrencyFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::FACADE_CURRENCY);
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Dependency\Service\PriceProductScheduleToUtilCsvServiceInterface
-     */
     public function getUtilCsvService(): PriceProductScheduleToUtilCsvServiceInterface
     {
         return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::SERVICE_UTIL_CSV);

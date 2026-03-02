@@ -12,11 +12,5 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 interface PriceProductFallbackFinderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
-     */
     public function findFallbackPriceProduct(PriceProductTransfer $priceProductTransfer, ?StoreTransfer $storeTransfer): ?PriceProductTransfer;
 }

@@ -12,10 +12,5 @@ use Spryker\Zed\PriceProductSchedule\Communication\File\UploadedFile;
 
 interface PriceProductScheduleCsvValidatorInterface
 {
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Communication\File\UploadedFile $uploadedFile
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleCsvValidationResultTransfer
-     */
     public function validateCsvFile(UploadedFile $uploadedFile): PriceProductScheduleCsvValidationResultTransfer;
 }

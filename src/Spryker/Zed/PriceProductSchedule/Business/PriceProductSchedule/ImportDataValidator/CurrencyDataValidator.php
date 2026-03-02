@@ -23,19 +23,11 @@ class CurrencyDataValidator extends AbstractImportDataValidator
      */
     protected $currencyFinder;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\Currency\CurrencyFinderInterface $currencyFinder
-     */
     public function __construct(CurrencyFinderInterface $currencyFinder)
     {
         $this->currencyFinder = $currencyFinder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer|null
-     */
     public function validatePriceProductScheduleImportTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): ?PriceProductScheduleListImportErrorTransfer {
@@ -50,11 +42,6 @@ class CurrencyDataValidator extends AbstractImportDataValidator
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isCurrencyValid(PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer): bool
     {
         if ($priceProductScheduleImportTransfer->getCurrencyCode() === null) {

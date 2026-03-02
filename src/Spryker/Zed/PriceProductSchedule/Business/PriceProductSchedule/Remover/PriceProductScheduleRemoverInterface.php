@@ -9,10 +9,5 @@ namespace Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Remover
 
 interface PriceProductScheduleRemoverInterface
 {
-    /**
-     * @param int $idPriceProductSchedule
-     *
-     * @return void
-     */
     public function removeAndApplyPriceProductSchedule(int $idPriceProductSchedule): void;
 }

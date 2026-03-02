@@ -26,20 +26,12 @@ class ProductFinder implements ProductFinderInterface
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToProductFacadeInterface $productFacade
-     */
     public function __construct(
         PriceProductScheduleToProductFacadeInterface $productFacade
     ) {
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductAbstractIdBySku(string $sku): ?int
     {
         if (isset($this->productAbstractCache[$sku])) {
@@ -57,11 +49,6 @@ class ProductFinder implements ProductFinderInterface
         return $this->productAbstractCache[$sku];
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductConcreteIdBySku(string $sku): ?int
     {
         if (isset($this->productConcreteCache[$sku])) {

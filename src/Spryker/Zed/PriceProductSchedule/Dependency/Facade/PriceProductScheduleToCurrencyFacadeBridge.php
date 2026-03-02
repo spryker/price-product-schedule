@@ -24,11 +24,6 @@ class PriceProductScheduleToCurrencyFacadeBridge implements PriceProductSchedule
         $this->currencyFacade = $currencyFacade;
     }
 
-    /**
-     * @param string $isoCode
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer|null
-     */
     public function findCurrencyByIsoCode(string $isoCode): ?CurrencyTransfer
     {
         return $this->currencyFacade->findCurrencyByIsoCode($isoCode);

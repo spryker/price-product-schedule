@@ -24,10 +24,6 @@ class PriceProductScheduleCsvReader implements PriceProductScheduleCsvReaderInte
      */
     protected $priceProductScheduleImportMapper;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Service\PriceProductScheduleToUtilCsvServiceInterface $csvService
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleImportMapperInterface $priceProductScheduleImportMapper
-     */
     public function __construct(
         PriceProductScheduleToUtilCsvServiceInterface $csvService,
         PriceProductScheduleImportMapperInterface $priceProductScheduleImportMapper
@@ -36,12 +32,6 @@ class PriceProductScheduleCsvReader implements PriceProductScheduleCsvReaderInte
         $this->priceProductScheduleImportMapper = $priceProductScheduleImportMapper;
     }
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Communication\File\UploadedFile $uploadedFile
-     * @param \Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer $productScheduledListImportRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer
-     */
     public function readPriceProductScheduleImportTransfersFromCsvFile(
         UploadedFile $uploadedFile,
         PriceProductScheduledListImportRequestTransfer $productScheduledListImportRequestTransfer
@@ -74,11 +64,6 @@ class PriceProductScheduleCsvReader implements PriceProductScheduleCsvReaderInte
         return $productScheduledListImportRequestTransfer;
     }
 
-    /**
-     * @param array $rowData
-     *
-     * @return bool
-     */
     protected function isRowDataEmpty(array $rowData): bool
     {
         $clearedRowData = $this->clearRowDataFromEmptyValues($rowData);
@@ -86,21 +71,11 @@ class PriceProductScheduleCsvReader implements PriceProductScheduleCsvReaderInte
         return !$clearedRowData;
     }
 
-    /**
-     * @param array $rowData
-     *
-     * @return array
-     */
     protected function clearRowDataFromEmptyValues(array $rowData): array
     {
         return array_filter($rowData);
     }
 
-    /**
-     * @param array $importData
-     *
-     * @return array
-     */
     protected function removeHeadersFromImportData(array $importData): array
     {
         unset($importData[0]);

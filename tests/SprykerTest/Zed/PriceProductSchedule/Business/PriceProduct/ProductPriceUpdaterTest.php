@@ -48,9 +48,6 @@ class ProductPriceUpdaterTest extends Unit
      */
     protected $priceProductFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -61,9 +58,6 @@ class ProductPriceUpdaterTest extends Unit
         $this->storeTransfer = $this->tester->haveStore([StoreTransfer::NAME => 'DE']);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateCurrentProductPriceShouldUpdateNetAndGrossPrices(): void
     {
         // Assign

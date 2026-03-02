@@ -24,18 +24,8 @@ interface PriceProductScheduleFinderInterface
      */
     public function findCountPriceProductScheduleByCriteriaFilter(PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer): int;
 
-    /**
-     * @param int $idPriceProductSchedule
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer|null
-     */
     public function findPriceProductScheduleById(int $idPriceProductSchedule): ?PriceProductScheduleTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return bool
-     */
     public function isPriceProductScheduleUnique(PriceProductScheduleTransfer $priceProductScheduleTransfer): bool;
 
     /**

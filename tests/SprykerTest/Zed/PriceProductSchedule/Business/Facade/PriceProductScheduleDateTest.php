@@ -43,9 +43,6 @@ class PriceProductScheduleDateTest extends Unit
      */
     protected StoreTransfer $storeTransfer;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -118,9 +115,6 @@ class PriceProductScheduleDateTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testActivePriceProductScheduleShouldStayActive(): void
     {
         // Assign
@@ -288,9 +282,6 @@ class PriceProductScheduleDateTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testEndedPriceProductScheduleShouldBeDisabledAndTheNewOneShouldApply(): void
     {
         // Assign
@@ -344,9 +335,6 @@ class PriceProductScheduleDateTest extends Unit
         );
     }
 
-    /**
-     * @return array
-     */
     protected function getPriceProductData(): array
     {
         $productConcreteTransfer = $this->tester->haveProduct();
@@ -368,9 +356,6 @@ class PriceProductScheduleDateTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     protected function getAbstractPriceProductData(): array
     {
         $productAbstractTransfer = $this->tester->haveProductAbstract();
@@ -392,9 +377,6 @@ class PriceProductScheduleDateTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function priceProductScheduleShouldApplyForActiveDateRangesDataProvider(): array
     {
         return [
@@ -409,9 +391,6 @@ class PriceProductScheduleDateTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function priceProductScheduleShouldNotApplyForNotActiveDateRangesDataProvider(): array
     {
         return [
@@ -426,9 +405,6 @@ class PriceProductScheduleDateTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function priceProductScheduleShouldStayActiveForLessDurationDataProvider(): array
     {
         return [
@@ -451,9 +427,6 @@ class PriceProductScheduleDateTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function priceProductScheduleShouldToggleForLowestDurationDataProvider(): array
     {
         return [
@@ -476,9 +449,6 @@ class PriceProductScheduleDateTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function priceProductScheduleShouldApplyForLowestDurationDataProvider(): array
     {
         return [

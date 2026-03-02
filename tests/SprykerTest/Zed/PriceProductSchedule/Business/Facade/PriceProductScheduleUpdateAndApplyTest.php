@@ -55,9 +55,6 @@ class PriceProductScheduleUpdateAndApplyTest extends Unit
      */
     protected $priceProductFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -68,9 +65,6 @@ class PriceProductScheduleUpdateAndApplyTest extends Unit
         $this->priceProductFacade = $this->tester->getLocator()->priceProduct()->facade();
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleAbstractUpdateAndApplyShouldSetDefaultPriceFromScheduledPrice(): void
     {
         // Assign
@@ -128,9 +122,6 @@ class PriceProductScheduleUpdateAndApplyTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleConcreteUpdateAndApplyShouldSetDefaultPriceFromScheduledPrice(): void
     {
         // Assign

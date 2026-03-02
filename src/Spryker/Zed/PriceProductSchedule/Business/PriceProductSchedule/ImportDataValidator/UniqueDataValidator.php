@@ -30,10 +30,6 @@ class UniqueDataValidator extends AbstractImportDataValidator
      */
     protected $priceProductScheduleImportMapper;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleRepositoryInterface $priceProductScheduleRepository
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleImportMapperInterface $priceProductScheduleImportMapper
-     */
     public function __construct(
         PriceProductScheduleRepositoryInterface $priceProductScheduleRepository,
         PriceProductScheduleImportMapperInterface $priceProductScheduleImportMapper
@@ -42,11 +38,6 @@ class UniqueDataValidator extends AbstractImportDataValidator
         $this->priceProductScheduleImportMapper = $priceProductScheduleImportMapper;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer|null
-     */
     public function validatePriceProductScheduleImportTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): ?PriceProductScheduleListImportErrorTransfer {

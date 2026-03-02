@@ -43,9 +43,6 @@ class PriceProductScheduleCleanerTest extends Unit
      */
     protected $priceProductScheduleFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -85,9 +82,6 @@ class PriceProductScheduleCleanerTest extends Unit
         $this->assertSame($expectedCount, $this->tester->getPriceProductScheduleQuery()->find()->count());
     }
 
-    /**
-     * @return array
-     */
     protected function getPriceProductData(): array
     {
         $currencyId = $this->tester->haveCurrency();
@@ -107,9 +101,6 @@ class PriceProductScheduleCleanerTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function priceProductScheduleCleanerShouldRemoveAllEntitiesBeforeDaysRetainedDataProvider(): array
     {
         return [

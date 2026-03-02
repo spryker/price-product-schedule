@@ -56,9 +56,6 @@ class PriceProductScheduleCreateAndApplyTest extends Unit
      */
     protected $priceProductFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -69,9 +66,6 @@ class PriceProductScheduleCreateAndApplyTest extends Unit
         $this->priceProductFacade = $this->tester->getLocator()->priceProduct()->facade();
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleAbstractCreateAndApplyShouldSetDefaultPriceFromScheduledPrice(): void
     {
         // Assign
@@ -125,9 +119,6 @@ class PriceProductScheduleCreateAndApplyTest extends Unit
         $this->assertSame(300, $actualPriceProductTransfer->getMoneyValue()->getNetAmount(), 'Default price does not match expected value.');
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleConcreteCreateAndApplyShouldSetDefaultPriceFromScheduledPrice(): void
     {
         // Assign

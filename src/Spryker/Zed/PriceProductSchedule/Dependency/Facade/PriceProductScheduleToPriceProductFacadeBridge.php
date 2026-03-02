@@ -29,31 +29,16 @@ class PriceProductScheduleToPriceProductFacadeBridge implements PriceProductSche
         $this->priceProductFacade = $priceProductFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function persistPriceProductStore(PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
         return $this->priceProductFacade->persistPriceProductStore($priceProductTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductFilterTransfer $priceFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
-     */
     public function findPriceProductFor(PriceProductFilterTransfer $priceFilterTransfer): ?PriceProductTransfer
     {
         return $this->priceProductFacade->findPriceProductFor($priceFilterTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductCollectionResponseTransfer
-     */
     public function deletePriceProductCollection(
         PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
     ): PriceProductCollectionResponseTransfer {
@@ -95,11 +80,6 @@ class PriceProductScheduleToPriceProductFacadeBridge implements PriceProductSche
         );
     }
 
-    /**
-     * @param string $priceTypeName
-     *
-     * @return \Generated\Shared\Transfer\PriceTypeTransfer|null
-     */
     public function findPriceTypeByName(string $priceTypeName): ?PriceTypeTransfer
     {
         return $this->priceProductFacade->findPriceTypeByName($priceTypeName);
@@ -115,11 +95,6 @@ class PriceProductScheduleToPriceProductFacadeBridge implements PriceProductSche
         return $this->priceProductFacade->createPriceForProduct($priceProductTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     public function isPriceProductByProductIdentifierAndPriceTypeExists(
         PriceProductTransfer $priceProductTransfer
     ): bool {

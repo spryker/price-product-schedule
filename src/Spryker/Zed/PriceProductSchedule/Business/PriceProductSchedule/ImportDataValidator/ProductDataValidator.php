@@ -33,19 +33,11 @@ class ProductDataValidator extends AbstractImportDataValidator
      */
     protected $productFinder;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\Product\ProductFinderInterface $productFinder
-     */
     public function __construct(ProductFinderInterface $productFinder)
     {
         $this->productFinder = $productFinder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer|null
-     */
     public function validatePriceProductScheduleImportTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): ?PriceProductScheduleListImportErrorTransfer {
@@ -75,11 +67,6 @@ class ProductDataValidator extends AbstractImportDataValidator
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isSkuFieldUnique(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): bool {
@@ -89,11 +76,6 @@ class ProductDataValidator extends AbstractImportDataValidator
         return ($isBothSkuMissing || $isBothSkuProvided) === false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isProductAbstractDataValid(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): bool {
@@ -109,11 +91,6 @@ class ProductDataValidator extends AbstractImportDataValidator
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isProductConcreteDataValid(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): bool {

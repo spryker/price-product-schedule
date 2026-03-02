@@ -24,10 +24,6 @@ class PriceProductTransferMoneyValueDataExpander implements PriceProductTransfer
      */
     protected $currencyFinder;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\Store\StoreFinderInterface $storeFinder
-     * @param \Spryker\Zed\PriceProductSchedule\Business\Currency\CurrencyFinderInterface $currencyFinder
-     */
     public function __construct(
         StoreFinderInterface $storeFinder,
         CurrencyFinderInterface $currencyFinder
@@ -36,11 +32,6 @@ class PriceProductTransferMoneyValueDataExpander implements PriceProductTransfer
         $this->currencyFinder = $currencyFinder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function expand(PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
         $priceProductTransfer->requireMoneyValue();
@@ -52,11 +43,6 @@ class PriceProductTransferMoneyValueDataExpander implements PriceProductTransfer
         return $priceProductTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValue
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
-     */
     protected function expandMoneyValueTransferWithCurrencyData(MoneyValueTransfer $moneyValue): MoneyValueTransfer
     {
         $moneyValue->requireCurrency();
@@ -72,11 +58,6 @@ class PriceProductTransferMoneyValueDataExpander implements PriceProductTransfer
         return $moneyValue;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValue
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
-     */
     protected function expandMoneyValueTransferWithStoreData(MoneyValueTransfer $moneyValue): MoneyValueTransfer
     {
         $moneyValue->requireStore();

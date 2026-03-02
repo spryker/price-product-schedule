@@ -58,10 +58,6 @@ class PriceProductScheduleListFinder implements PriceProductScheduleListFinderIn
      */
     protected $priceProductScheduleListMapper;
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleListQuery $priceProductScheduleListQuery
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\Propel\Mapper\PriceProductScheduleListMapperInterface $priceProductScheduleListMapper
-     */
     public function __construct(
         SpyPriceProductScheduleListQuery $priceProductScheduleListQuery,
         PriceProductScheduleListMapperInterface $priceProductScheduleListMapper
@@ -70,11 +66,6 @@ class PriceProductScheduleListFinder implements PriceProductScheduleListFinderIn
         $this->priceProductScheduleListMapper = $priceProductScheduleListMapper;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer|null
-     */
     public function findPriceProductScheduleListById(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): ?PriceProductScheduleListTransfer {
@@ -114,11 +105,6 @@ class PriceProductScheduleListFinder implements PriceProductScheduleListFinderIn
             );
     }
 
-    /**
-     * @param string $name
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer|null
-     */
     public function findPriceProductScheduleListByName(string $name): ?PriceProductScheduleListTransfer
     {
         $priceProductScheduleListEntity = $this->priceProductScheduleListQuery

@@ -25,10 +25,6 @@ class PriceProductFallbackFinder implements PriceProductFallbackFinderInterface
      */
     protected $priceProductFacade;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\PriceProductScheduleConfig $priceProductScheduleConfig
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade
-     */
     public function __construct(
         PriceProductScheduleConfig $priceProductScheduleConfig,
         PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade
@@ -37,12 +33,6 @@ class PriceProductFallbackFinder implements PriceProductFallbackFinderInterface
         $this->priceProductFacade = $priceProductFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
-     */
     public function findFallbackPriceProduct(PriceProductTransfer $priceProductTransfer, ?StoreTransfer $storeTransfer): ?PriceProductTransfer
     {
         $priceProductTransfer->requireMoneyValue();
@@ -71,11 +61,6 @@ class PriceProductFallbackFinder implements PriceProductFallbackFinderInterface
         return $this->priceProductFacade->findPriceProductFor($priceProductFilterTransfer);
     }
 
-    /**
-     * @param string $priceTypeName
-     *
-     * @return string|null
-     */
     protected function findFallbackPriceType(string $priceTypeName): ?string
     {
         $fallBackPriceTypeList = $this->priceProductScheduleConfig->getFallbackPriceTypeList();

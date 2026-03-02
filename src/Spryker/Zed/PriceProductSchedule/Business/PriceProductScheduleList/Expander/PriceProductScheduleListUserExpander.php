@@ -17,19 +17,11 @@ class PriceProductScheduleListUserExpander implements PriceProductScheduleListUs
      */
     protected $userFacade;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToUserFacadeInterface $userFacade
-     */
     public function __construct(PriceProductScheduleToUserFacadeInterface $userFacade)
     {
         $this->userFacade = $userFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer
-     */
     public function expand(PriceProductScheduleListTransfer $priceProductScheduleListTransfer): PriceProductScheduleListTransfer
     {
         if (!$this->userFacade->hasCurrentUser()) {

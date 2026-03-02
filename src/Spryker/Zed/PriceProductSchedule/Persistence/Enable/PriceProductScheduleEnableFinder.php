@@ -68,12 +68,6 @@ class PriceProductScheduleEnableFinder implements PriceProductScheduleEnableFind
      */
     protected PriceProductScheduleMapperInterface $priceProductScheduleMapper;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPropelFacadeInterface $propelFacade
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductSchedulePersistenceFactoryInterface $priceProductSchedulePersistenceFactory
-     * @param \Spryker\Zed\PriceProductSchedule\PriceProductScheduleConfig $priceProductScheduleConfig
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\Propel\Mapper\PriceProductScheduleMapperInterface $priceProductScheduleMapper
-     */
     public function __construct(
         PriceProductScheduleToPropelFacadeInterface $propelFacade,
         PriceProductSchedulePersistenceFactoryInterface $priceProductSchedulePersistenceFactory,
@@ -235,9 +229,6 @@ class PriceProductScheduleEnableFinder implements PriceProductScheduleEnableFind
         return $this->getPriceProductScheduleIdsFilteredByEnabledSchedules($priceProductSchedulesIndexedByProductKey);
     }
 
-    /**
-     * @return string
-     */
     protected function createTimestampDifferenceExpression(): string
     {
         $currentDatabaseEngineName = $this->propelFacade->getCurrentDatabaseEngine();

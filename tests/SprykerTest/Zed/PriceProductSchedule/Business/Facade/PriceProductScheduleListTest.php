@@ -45,9 +45,6 @@ class PriceProductScheduleListTest extends Unit
      */
     protected StoreTransfer $storeTransfer;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -58,9 +55,6 @@ class PriceProductScheduleListTest extends Unit
         $this->storeTransfer = $this->tester->haveStore([StoreTransfer::NAME => 'DE']);
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleFromInactivePriceProductScheduleListShouldNotApply(): void
     {
         // Assign
@@ -172,9 +166,6 @@ class PriceProductScheduleListTest extends Unit
         );
     }
 
-    /**
-     * @return array
-     */
     public function createPriceProductScheduleListDataProvider(): array
     {
         return [
@@ -195,9 +186,6 @@ class PriceProductScheduleListTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function updatePriceProductScheduleListDataProvider(): array
     {
         return [

@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer;
 
 interface PriceProductScheduleListRemoverInterface
 {
-    /**
-     * @param int $idPriceProductScheduleList
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer
-     */
     public function removePriceProductScheduleList(int $idPriceProductScheduleList): PriceProductScheduleListResponseTransfer;
 }

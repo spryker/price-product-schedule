@@ -57,13 +57,6 @@ class PriceProductScheduleDisabler implements PriceProductScheduleDisablerInterf
      */
     protected $priceProductFacade;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleRepositoryInterface $priceProductScheduleRepository
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProduct\PriceProductFallbackFinderInterface $priceProductFallbackFinder
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProduct\PriceProductUpdaterInterface $productPriceUpdater
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade
-     */
     public function __construct(
         PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager,
         PriceProductScheduleRepositoryInterface $priceProductScheduleRepository,
@@ -78,9 +71,6 @@ class PriceProductScheduleDisabler implements PriceProductScheduleDisablerInterf
         $this->priceProductFacade = $priceProductFacade;
     }
 
-    /**
-     * @return void
-     */
     public function disableNotActiveScheduledPrices(): void
     {
         $productSchedulePricesForDisable = $this->priceProductScheduleRepository->findPriceProductSchedulesToDisable();
@@ -92,11 +82,6 @@ class PriceProductScheduleDisabler implements PriceProductScheduleDisablerInterf
         }
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return void
-     */
     public function disableNotActiveScheduledPricesByIdProductAbstract(int $idProductAbstract): void
     {
         $productSchedulePricesForDisable = $this->priceProductScheduleRepository
@@ -109,11 +94,6 @@ class PriceProductScheduleDisabler implements PriceProductScheduleDisablerInterf
         }
     }
 
-    /**
-     * @param int $idProductConcrete
-     *
-     * @return void
-     */
     public function disableNotActiveScheduledPricesByIdProductConcrete(int $idProductConcrete): void
     {
         $productSchedulePricesForDisable = $this->priceProductScheduleRepository
@@ -126,11 +106,6 @@ class PriceProductScheduleDisabler implements PriceProductScheduleDisablerInterf
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return void
-     */
     public function disableNotRelevantPriceProductSchedulesByPriceProductSchedule(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): void {
@@ -144,11 +119,6 @@ class PriceProductScheduleDisabler implements PriceProductScheduleDisablerInterf
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return void
-     */
     protected function executeExitLogicTransaction(PriceProductScheduleTransfer $priceProductScheduleTransfer): void
     {
         $isPriceProductScheduleForSwitchExists = $this->priceProductScheduleRepository
@@ -213,11 +183,6 @@ class PriceProductScheduleDisabler implements PriceProductScheduleDisablerInterf
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function disablePriceProductSchedule(PriceProductScheduleTransfer $priceProductScheduleTransfer): PriceProductScheduleTransfer
     {
         $dateInThePast = new DateTime(static::PATTERN_MINUS_ONE_DAY);
@@ -226,11 +191,6 @@ class PriceProductScheduleDisabler implements PriceProductScheduleDisablerInterf
         return $this->priceProductScheduleEntityManager->savePriceProductSchedule($priceProductScheduleTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function deactivatePriceProductSchedule(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): PriceProductScheduleTransfer {

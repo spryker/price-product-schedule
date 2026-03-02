@@ -9,17 +9,7 @@ namespace Spryker\Zed\PriceProductSchedule\Business\Product;
 
 interface ProductFinderInterface
 {
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductAbstractIdBySku(string $sku): ?int;
 
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductConcreteIdBySku(string $sku): ?int;
 }

@@ -39,12 +39,6 @@ class PriceProductScheduleListRemover implements PriceProductScheduleListRemover
      */
     protected $priceProductScheduleRepository;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Remover\PriceProductScheduleRemoverInterface $priceProductScheduleRemover
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\PriceProductScheduleListFinderInterface $priceProductScheduleListFinder
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleRepositoryInterface $priceProductScheduleRepository
-     */
     public function __construct(
         PriceProductScheduleRemoverInterface $priceProductScheduleRemover,
         PriceProductScheduleListFinderInterface $priceProductScheduleListFinder,
@@ -57,11 +51,6 @@ class PriceProductScheduleListRemover implements PriceProductScheduleListRemover
         $this->priceProductScheduleRepository = $priceProductScheduleRepository;
     }
 
-    /**
-     * @param int $idPriceProductScheduleList
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer
-     */
     public function removePriceProductScheduleList(int $idPriceProductScheduleList): PriceProductScheduleListResponseTransfer
     {
         $priceProductScheduleListResponseTransfer = $this->priceProductScheduleListFinder
@@ -83,11 +72,6 @@ class PriceProductScheduleListRemover implements PriceProductScheduleListRemover
             ->setPriceProductScheduleList();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return void
-     */
     protected function executeRemoveScheduleListTransactionLogic(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): void {
@@ -126,11 +110,6 @@ class PriceProductScheduleListRemover implements PriceProductScheduleListRemover
         }
     }
 
-    /**
-     * @param int $idPriceProductScheduleList
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer
-     */
     protected function createPriceProductScheduleListTransfer(int $idPriceProductScheduleList): PriceProductScheduleListTransfer
     {
         return (new PriceProductScheduleListTransfer())

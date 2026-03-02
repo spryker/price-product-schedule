@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 interface StoreFinderInterface
 {
-    /**
-     * @param string $storeName
-     *
-     * @return \Generated\Shared\Transfer\StoreTransfer|null
-     */
     public function findStoreByName(string $storeName): ?StoreTransfer;
 }

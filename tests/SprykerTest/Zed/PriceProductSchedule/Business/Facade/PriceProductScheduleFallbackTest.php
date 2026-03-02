@@ -79,9 +79,6 @@ class PriceProductScheduleFallbackTest extends Unit
      */
     protected $currencyFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -93,9 +90,6 @@ class PriceProductScheduleFallbackTest extends Unit
         $this->currencyFacade = $this->tester->getLocator()->currency()->facade();
     }
 
-    /**
-     * @return void
-     */
     public function testProductPriceShouldBeRevertedAfterPriceProductScheduleIsOver(): void
     {
         // Assign
@@ -177,9 +171,6 @@ class PriceProductScheduleFallbackTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testProductPriceShouldBeSwitchedToTheSecondScheduledPrice(): void
     {
         // Arrange
@@ -267,9 +258,6 @@ class PriceProductScheduleFallbackTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testProductPriceShouldBeRemovedIfFallbackPriceTypeNotConfigured(): void
     {
         // Assign
@@ -370,11 +358,6 @@ class PriceProductScheduleFallbackTest extends Unit
         ];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return array
-     */
     protected function getPriceProductScheduleData(ProductConcreteTransfer $productConcreteTransfer): array
     {
         $currencyId = $this->tester->haveCurrency();
@@ -450,9 +433,6 @@ class PriceProductScheduleFallbackTest extends Unit
         return $priceProductFacadeMock;
     }
 
-    /**
-     * @return void
-     */
     protected function resetCachedEntities(): void
     {
         $priceProductConcreteReaderReflection = new ReflectionClass("\Spryker\Zed\PriceProduct\Business\Model\Product\PriceProductConcreteReader");

@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\PriceProductScheduleTransfer;
 
 interface PriceProductScheduleApplierByProductTypeResolverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return void
-     */
     public function applyPriceProductScheduleByProductType(PriceProductScheduleTransfer $priceProductScheduleTransfer): void;
 }

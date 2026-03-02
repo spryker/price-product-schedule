@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
 
 interface PriceProductScheduleListUserExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer
-     */
     public function expand(PriceProductScheduleListTransfer $priceProductScheduleListTransfer): PriceProductScheduleListTransfer;
 }

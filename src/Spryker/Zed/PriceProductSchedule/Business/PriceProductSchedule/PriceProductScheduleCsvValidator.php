@@ -29,10 +29,6 @@ class PriceProductScheduleCsvValidator implements PriceProductScheduleCsvValidat
      */
     protected $priceProductScheduleConfig;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Service\PriceProductScheduleToUtilCsvServiceInterface $csvService
-     * @param \Spryker\Zed\PriceProductSchedule\PriceProductScheduleConfig $priceProductScheduleConfig
-     */
     public function __construct(
         PriceProductScheduleToUtilCsvServiceInterface $csvService,
         PriceProductScheduleConfig $priceProductScheduleConfig
@@ -41,11 +37,6 @@ class PriceProductScheduleCsvValidator implements PriceProductScheduleCsvValidat
         $this->priceProductScheduleConfig = $priceProductScheduleConfig;
     }
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Communication\File\UploadedFile $uploadedFile
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleCsvValidationResultTransfer
-     */
     public function validateCsvFile(UploadedFile $uploadedFile): PriceProductScheduleCsvValidationResultTransfer
     {
         $priceProductScheduleCsvValidationResultTransfer = (new PriceProductScheduleCsvValidationResultTransfer())

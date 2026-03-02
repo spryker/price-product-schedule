@@ -57,9 +57,6 @@ class PriceProductScheduleRemoveAndApplyTest extends Unit
      */
     protected $priceProductFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -72,9 +69,6 @@ class PriceProductScheduleRemoveAndApplyTest extends Unit
         $this->priceProductFacade = $this->tester->getLocator()->priceProduct()->facade();
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleAbstractDeleteAndApplyShouldSetDefaultPriceFromOriginal(): void
     {
         // Assign
@@ -148,9 +142,6 @@ class PriceProductScheduleRemoveAndApplyTest extends Unit
         $this->assertSame(200, $actualPriceProductTransfer->getMoneyValue()->getNetAmount(), 'Default price does not match expected value.');
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleConcreteDeleteAndApplyShouldSetDefaultPriceFromOriginal(): void
     {
         // Assign
@@ -226,9 +217,6 @@ class PriceProductScheduleRemoveAndApplyTest extends Unit
         $this->assertSame(200, $actualPriceProductTransfer->getMoneyValue()->getNetAmount(), 'Default price does not match expected value.');
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleAbstractDeleteAndApplyShouldSetDefaultPriceFromSecondScheduledPrice(): void
     {
         // Assign
@@ -322,9 +310,6 @@ class PriceProductScheduleRemoveAndApplyTest extends Unit
         $this->assertSame(500, $actualPriceProductTransfer->getMoneyValue()->getNetAmount(), 'Default price does not match expected value.');
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleConcreteDeleteAndApplyShouldSetDefaultPriceFromAnotherScheduledPrice(): void
     {
         // Assign

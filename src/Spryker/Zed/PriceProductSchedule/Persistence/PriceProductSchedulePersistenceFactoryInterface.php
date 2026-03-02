@@ -11,8 +11,5 @@ use Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery;
 
 interface PriceProductSchedulePersistenceFactoryInterface
 {
-    /**
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery
-     */
     public function createPriceProductScheduleQuery(): SpyPriceProductScheduleQuery;
 }

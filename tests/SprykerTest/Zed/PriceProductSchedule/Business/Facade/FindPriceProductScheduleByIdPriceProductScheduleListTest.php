@@ -44,9 +44,6 @@ class FindPriceProductScheduleByIdPriceProductScheduleListTest extends Unit
      */
     protected $currencyFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -55,9 +52,6 @@ class FindPriceProductScheduleByIdPriceProductScheduleListTest extends Unit
         $this->currencyFacade = $this->tester->getLocator()->currency()->facade();
     }
 
-    /**
-     * @return void
-     */
     public function testFindPriceProductScheduleByIdPriceProductScheduleListShouldReturnArrayWithScheduledPrices(): void
     {
         // Assign
@@ -132,9 +126,6 @@ class FindPriceProductScheduleByIdPriceProductScheduleListTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFindPriceProductScheduleByIdPriceProductScheduleListShouldReturnEmptyArray(): void
     {
         // Assign

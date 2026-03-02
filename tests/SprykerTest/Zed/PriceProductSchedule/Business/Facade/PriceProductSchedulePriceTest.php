@@ -44,9 +44,6 @@ class PriceProductSchedulePriceTest extends Unit
      */
     protected StoreTransfer $storeTransfer;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -57,9 +54,6 @@ class PriceProductSchedulePriceTest extends Unit
         $this->storeTransfer = $this->tester->haveStore([StoreTransfer::NAME => 'DE']);
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleWithLowestGrossPriceShouldApply(): void
     {
         // Arrange
@@ -93,9 +87,6 @@ class PriceProductSchedulePriceTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleWithLowestNetPriceShouldApply(): void
     {
         // Arrange
@@ -129,9 +120,6 @@ class PriceProductSchedulePriceTest extends Unit
         );
     }
 
-    /**
-     * @return array
-     */
     protected function getPriceProductScheduleData(): array
     {
         $productConcreteTransfer = $this->tester->haveProduct();

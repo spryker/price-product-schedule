@@ -15,12 +15,6 @@ use Spryker\Zed\PriceProductSchedule\Persistence\Finder\PriceProductScheduleList
 
 class PriceProductScheduleListMapper implements PriceProductScheduleListMapperInterface
 {
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleList $priceProductScheduleListEntity
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer
-     */
     public function mapPriceProductScheduleListEntityToPriceProductScheduleListTransfer(
         SpyPriceProductScheduleList $priceProductScheduleListEntity,
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
@@ -38,12 +32,6 @@ class PriceProductScheduleListMapper implements PriceProductScheduleListMapperIn
             ->setUser($userTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleList $priceProductScheduleListEntity
-     *
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleList
-     */
     public function mapPriceProductScheduleListTransferToPriceProductScheduleListEntity(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer,
         SpyPriceProductScheduleList $priceProductScheduleListEntity
@@ -54,12 +42,6 @@ class PriceProductScheduleListMapper implements PriceProductScheduleListMapperIn
         return $priceProductScheduleListEntity;
     }
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleList $priceProductScheduleListEntity
-     * @param \Generated\Shared\Transfer\UserTransfer $userTransfer
-     *
-     * @return \Generated\Shared\Transfer\UserTransfer|null
-     */
     protected function mapPriceProductScheduleListEntityToUserTransfer(
         SpyPriceProductScheduleList $priceProductScheduleListEntity,
         UserTransfer $userTransfer
@@ -73,12 +55,6 @@ class PriceProductScheduleListMapper implements PriceProductScheduleListMapperIn
         return $userTransfer->fromArray($userEntity->toArray(), true);
     }
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleList $priceProductScheduleListEntity
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListMetaDataTransfer $priceProductScheduleListMetadataTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListMetaDataTransfer
-     */
     protected function mapPriceProductScheduleListEntityToPriceProductScheduleListMetaDataTransfer(
         SpyPriceProductScheduleList $priceProductScheduleListEntity,
         PriceProductScheduleListMetaDataTransfer $priceProductScheduleListMetadataTransfer

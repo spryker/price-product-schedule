@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\PriceTypeTransfer;
 
 interface PriceTypeFinderInterface
 {
-    /**
-     * @param string $priceTypeName
-     *
-     * @return \Generated\Shared\Transfer\PriceTypeTransfer|null
-     */
     public function findPriceTypeByName(string $priceTypeName): ?PriceTypeTransfer;
 }

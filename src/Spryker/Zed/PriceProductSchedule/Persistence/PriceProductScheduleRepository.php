@@ -28,11 +28,6 @@ class PriceProductScheduleRepository extends AbstractRepository implements Price
             ->findPriceProductSchedulesToDisable();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return bool
-     */
     public function isScheduledPriceForSwitchExists(PriceProductScheduleTransfer $priceProductScheduleTransfer): bool
     {
         return $this->getFactory()
@@ -119,11 +114,6 @@ class PriceProductScheduleRepository extends AbstractRepository implements Price
             ->findPriceProductSchedulesToEnableByStoreAndIdProductConcrete($storeTransfer, $idProductConcrete);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer
-     *
-     * @return int
-     */
     public function findCountPriceProductScheduleByCriteriaFilter(
         PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer
     ): int {
@@ -132,11 +122,6 @@ class PriceProductScheduleRepository extends AbstractRepository implements Price
             ->findCountPriceProductScheduleByCriteriaFilter($priceProductScheduleCriteriaFilterTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer|null
-     */
     public function findPriceProductScheduleListById(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): ?PriceProductScheduleListTransfer {
@@ -145,11 +130,6 @@ class PriceProductScheduleRepository extends AbstractRepository implements Price
             ->findPriceProductScheduleListById($priceProductScheduleListTransfer);
     }
 
-    /**
-     * @param int $idPriceProductSchedule
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer|null
-     */
     public function findPriceProductScheduleById(int $idPriceProductSchedule): ?PriceProductScheduleTransfer
     {
         return $this->getFactory()
@@ -157,11 +137,6 @@ class PriceProductScheduleRepository extends AbstractRepository implements Price
             ->findPriceProductScheduleById($idPriceProductSchedule);
     }
 
-    /**
-     * @param string $name
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer|null
-     */
     public function findPriceProductScheduleListByName(string $name): ?PriceProductScheduleListTransfer
     {
         return $this->getFactory()
@@ -169,11 +144,6 @@ class PriceProductScheduleRepository extends AbstractRepository implements Price
             ->findPriceProductScheduleListByName($name);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return bool
-     */
     public function isPriceProductScheduleUnique(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): bool {

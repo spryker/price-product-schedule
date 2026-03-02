@@ -32,25 +32,16 @@ use Spryker\Zed\PriceProductSchedule\PriceProductScheduleDependencyProvider;
  */
 class PriceProductSchedulePersistenceFactory extends AbstractPersistenceFactory implements PriceProductSchedulePersistenceFactoryInterface
 {
-    /**
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery
-     */
     public function createPriceProductScheduleQuery(): SpyPriceProductScheduleQuery
     {
         return SpyPriceProductScheduleQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleListQuery
-     */
     public function createPriceProductScheduleListQuery(): SpyPriceProductScheduleListQuery
     {
         return SpyPriceProductScheduleListQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Persistence\Propel\Mapper\PriceProductScheduleMapperInterface
-     */
     public function createPriceProductScheduleMapper(): PriceProductScheduleMapperInterface
     {
         return new PriceProductScheduleMapper(
@@ -59,17 +50,11 @@ class PriceProductSchedulePersistenceFactory extends AbstractPersistenceFactory 
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Persistence\Propel\Mapper\PriceProductScheduleListMapperInterface
-     */
     public function createPriceProductScheduleListMapper(): PriceProductScheduleListMapperInterface
     {
         return new PriceProductScheduleListMapper();
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Persistence\Disable\PriceProductScheduleDisableFinderInterface
-     */
     public function createPriceProductScheduleDisableFinder(): PriceProductScheduleDisableFinderInterface
     {
         return new PriceProductScheduleDisableFinder(
@@ -78,9 +63,6 @@ class PriceProductSchedulePersistenceFactory extends AbstractPersistenceFactory 
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Persistence\Enable\PriceProductScheduleEnableFinderInterface
-     */
     public function createPriceProductScheduleEnableFinder(): PriceProductScheduleEnableFinderInterface
     {
         return new PriceProductScheduleEnableFinder(
@@ -91,9 +73,6 @@ class PriceProductSchedulePersistenceFactory extends AbstractPersistenceFactory 
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Persistence\Finder\PriceProductScheduleFinderInterface
-     */
     public function createPriceProductScheduleFinder(): PriceProductScheduleFinderInterface
     {
         return new PriceProductScheduleFinder(
@@ -102,9 +81,6 @@ class PriceProductSchedulePersistenceFactory extends AbstractPersistenceFactory 
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Persistence\Finder\PriceProductScheduleListFinderInterface
-     */
     public function createPriceProductScheduleListFinder(): PriceProductScheduleListFinderInterface
     {
         return new PriceProductScheduleListFinder(
@@ -113,9 +89,6 @@ class PriceProductSchedulePersistenceFactory extends AbstractPersistenceFactory 
         );
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPropelFacadeInterface
-     */
     public function getPropelFacade(): PriceProductScheduleToPropelFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::FACADE_PROPEL);

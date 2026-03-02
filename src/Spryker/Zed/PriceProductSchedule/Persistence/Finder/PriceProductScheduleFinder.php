@@ -27,10 +27,6 @@ class PriceProductScheduleFinder implements PriceProductScheduleFinderInterface
      */
     protected $priceProductScheduleMapper;
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery $priceProductScheduleQuery
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\Propel\Mapper\PriceProductScheduleMapperInterface $priceProductScheduleMapper
-     */
     public function __construct(SpyPriceProductScheduleQuery $priceProductScheduleQuery, PriceProductScheduleMapperInterface $priceProductScheduleMapper)
     {
         $this->priceProductScheduleQuery = $priceProductScheduleQuery;
@@ -95,11 +91,6 @@ class PriceProductScheduleFinder implements PriceProductScheduleFinderInterface
         return $query->count();
     }
 
-    /**
-     * @param int $idPriceProductSchedule
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer|null
-     */
     public function findPriceProductScheduleById(int $idPriceProductSchedule): ?PriceProductScheduleTransfer
     {
         $priceProductScheduleEntity = $this->priceProductScheduleQuery
@@ -114,11 +105,6 @@ class PriceProductScheduleFinder implements PriceProductScheduleFinderInterface
             ->mapPriceProductScheduleEntityToPriceProductScheduleTransfer($priceProductScheduleEntity, new PriceProductScheduleTransfer());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return bool
-     */
     public function isPriceProductScheduleUnique(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): bool {
@@ -176,12 +162,6 @@ class PriceProductScheduleFinder implements PriceProductScheduleFinderInterface
             );
     }
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery $priceProductScheduleQuery
-     *
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery
-     */
     protected function addProductIdentifierToUniqueQuery(
         SpyPriceProductSchedule $priceProductScheduleEntity,
         SpyPriceProductScheduleQuery $priceProductScheduleQuery

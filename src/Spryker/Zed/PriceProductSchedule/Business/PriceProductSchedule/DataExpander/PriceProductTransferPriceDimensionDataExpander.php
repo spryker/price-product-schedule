@@ -18,20 +18,12 @@ class PriceProductTransferPriceDimensionDataExpander implements PriceProductTran
      */
     protected $priceProductScheduleConfig;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\PriceProductScheduleConfig $priceProductScheduleConfig
-     */
     public function __construct(
         PriceProductScheduleConfig $priceProductScheduleConfig
     ) {
         $this->priceProductScheduleConfig = $priceProductScheduleConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function expand(PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
         $priceProductDimensionTransfer = $this->getDefaultPriceProductDimension();
@@ -40,9 +32,6 @@ class PriceProductTransferPriceDimensionDataExpander implements PriceProductTran
             ->setPriceDimension($priceProductDimensionTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductDimensionTransfer
-     */
     protected function getDefaultPriceProductDimension(): PriceProductDimensionTransfer
     {
         return (new PriceProductDimensionTransfer())

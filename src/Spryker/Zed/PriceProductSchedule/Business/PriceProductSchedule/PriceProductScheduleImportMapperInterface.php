@@ -12,23 +12,11 @@ use Generated\Shared\Transfer\PriceProductScheduleImportTransfer;
 
 interface PriceProductScheduleImportMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     * @param \Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer
-     */
     public function mapPriceProductScheduleImportTransferToPriceProductScheduleCriteriaFilterTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer,
         PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer
     ): PriceProductScheduleCriteriaFilterTransfer;
 
-    /**
-     * @param array $importData
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleImportTransfer
-     */
     public function mapPriceProductScheduleRowToPriceProductScheduleImportTransfer(
         array $importData,
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer

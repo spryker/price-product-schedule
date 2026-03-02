@@ -12,17 +12,9 @@ use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
 
 interface PriceProductScheduleListCreatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer
-     */
     public function createPriceProductScheduleList(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): PriceProductScheduleListResponseTransfer;
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer
-     */
     public function createDefaultPriceProductScheduleList(): PriceProductScheduleListTransfer;
 }

@@ -49,18 +49,12 @@ class RemovePriceProductScheduleListTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
         $this->tester->ensureDatabaseTableIsEmpty();
     }
 
-    /**
-     * @return void
-     */
     public function testRemovePriceProductScheduleListWithActiveAbstractPricesShouldExecuteApply(): void
     {
         // Assign
@@ -164,9 +158,6 @@ class RemovePriceProductScheduleListTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRemovePriceProductScheduleListWithActiveConcretePricesShouldExecuteApply(): void
     {
         // Assign
@@ -271,9 +262,6 @@ class RemovePriceProductScheduleListTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRemovePriceProductScheduleListInactiveListWithActiveConcretePricesShouldExecuteApply(): void
     {
         // Assign
@@ -378,9 +366,6 @@ class RemovePriceProductScheduleListTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRemovePriceProductScheduleListWithInActiveAbstractPricesShouldNotExecuteApply(): void
     {
         // Assign
@@ -483,9 +468,6 @@ class RemovePriceProductScheduleListTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testRemovePriceProductScheduleListWithInActiveConcretePricesShouldNotExecuteApply(): void
     {
         // Assign

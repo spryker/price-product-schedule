@@ -16,34 +16,14 @@ use Generated\Shared\Transfer\PriceTypeTransfer;
 
 interface PriceProductScheduleToPriceProductFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function persistPriceProductStore(PriceProductTransfer $priceProductTransfer): PriceProductTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductFilterTransfer $priceFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
-     */
     public function findPriceProductFor(PriceProductFilterTransfer $priceFilterTransfer): ?PriceProductTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductCollectionResponseTransfer
-     */
     public function deletePriceProductCollection(
         PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
     ): PriceProductCollectionResponseTransfer;
 
-    /**
-     * @param string $priceTypeName
-     *
-     * @return \Generated\Shared\Transfer\PriceTypeTransfer|null
-     */
     public function findPriceTypeByName(string $priceTypeName): ?PriceTypeTransfer;
 
     /**
@@ -77,11 +57,6 @@ interface PriceProductScheduleToPriceProductFacadeInterface
      */
     public function createPriceForProduct(PriceProductTransfer $priceProductTransfer);
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
-     */
     public function isPriceProductByProductIdentifierAndPriceTypeExists(
         PriceProductTransfer $priceProductTransfer
     ): bool;

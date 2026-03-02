@@ -26,10 +26,6 @@ class PriceProductUpdater implements PriceProductUpdaterInterface
      */
     protected $priceProductFacade;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade
-     */
     public function __construct(
         PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager,
         PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade
@@ -38,13 +34,6 @@ class PriceProductUpdater implements PriceProductUpdaterInterface
         $this->priceProductFacade = $priceProductFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceTypeTransfer $currentPriceType
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
-     */
     public function updateCurrentPriceProduct(
         PriceProductTransfer $priceProductTransfer,
         PriceTypeTransfer $currentPriceType,

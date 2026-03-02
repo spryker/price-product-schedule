@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer;
 
 interface PriceProductScheduleImportValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer|null
-     */
     public function validatePriceProductScheduleImportTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): ?PriceProductScheduleListImportErrorTransfer;

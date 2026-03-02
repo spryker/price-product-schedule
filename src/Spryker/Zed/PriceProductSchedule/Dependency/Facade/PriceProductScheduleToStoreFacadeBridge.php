@@ -24,19 +24,11 @@ class PriceProductScheduleToStoreFacadeBridge implements PriceProductScheduleToS
         $this->storeFacade = $storeFacade;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
     public function getCurrentStore(): StoreTransfer
     {
         return $this->storeFacade->getCurrentStore();
     }
 
-    /**
-     * @param string $storeName
-     *
-     * @return \Generated\Shared\Transfer\StoreTransfer|null
-     */
     public function findStoreByName(string $storeName): ?StoreTransfer
     {
         return $this->storeFacade->findStoreByName($storeName);
@@ -50,9 +42,6 @@ class PriceProductScheduleToStoreFacadeBridge implements PriceProductScheduleToS
         return $this->storeFacade->getAllStores();
     }
 
-    /**
-     * @return bool
-     */
     public function isCurrentStoreDefined(): bool
     {
         return $this->storeFacade->isCurrentStoreDefined();

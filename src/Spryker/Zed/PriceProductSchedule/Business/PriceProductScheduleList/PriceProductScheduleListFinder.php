@@ -30,10 +30,6 @@ class PriceProductScheduleListFinder implements PriceProductScheduleListFinderIn
      */
     protected $priceProductScheduleConfig;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleRepositoryInterface $priceProductScheduleRepository
-     * @param \Spryker\Zed\PriceProductSchedule\PriceProductScheduleConfig $priceProductScheduleConfig
-     */
     public function __construct(
         PriceProductScheduleRepositoryInterface $priceProductScheduleRepository,
         PriceProductScheduleConfig $priceProductScheduleConfig
@@ -42,11 +38,6 @@ class PriceProductScheduleListFinder implements PriceProductScheduleListFinderIn
         $this->priceProductScheduleConfig = $priceProductScheduleConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $requestedPriceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer
-     */
     public function findPriceProductScheduleList(
         PriceProductScheduleListTransfer $requestedPriceProductScheduleListTransfer
     ): PriceProductScheduleListResponseTransfer {
@@ -72,9 +63,6 @@ class PriceProductScheduleListFinder implements PriceProductScheduleListFinderIn
             ->setPriceProductScheduleList($priceProductScheduleListTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer|null
-     */
     public function findDefaultPriceProductScheduleList(): ?PriceProductScheduleListTransfer
     {
         return $this->priceProductScheduleRepository
@@ -83,11 +71,6 @@ class PriceProductScheduleListFinder implements PriceProductScheduleListFinderIn
             );
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListErrorTransfer
-     */
     protected function createPriceProductScheduleListErrorTransfer(string $message): PriceProductScheduleListErrorTransfer
     {
         return (new PriceProductScheduleListErrorTransfer())->setMessage($message);

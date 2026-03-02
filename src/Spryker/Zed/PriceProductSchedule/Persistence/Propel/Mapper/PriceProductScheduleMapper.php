@@ -33,10 +33,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
      */
     protected $config;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\Propel\Mapper\PriceProductScheduleListMapperInterface $priceProductScheduleListMapper
-     * @param \Spryker\Zed\PriceProductSchedule\PriceProductScheduleConfig $config
-     */
     public function __construct(
         PriceProductScheduleListMapperInterface $priceProductScheduleListMapper,
         PriceProductScheduleConfig $config
@@ -45,12 +41,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
         $this->config = $config;
     }
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function mapPriceProductScheduleEntityToPriceProductScheduleTransfer(
         SpyPriceProductSchedule $priceProductScheduleEntity,
         PriceProductScheduleTransfer $priceProductScheduleTransfer
@@ -78,12 +68,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
             ->setPriceProductScheduleList($priceProductScheduleListTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     *
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule
-     */
     public function mapPriceProductScheduleTransferToPriceProductScheduleEntity(
         PriceProductScheduleTransfer $priceProductScheduleTransfer,
         SpyPriceProductSchedule $priceProductScheduleEntity
@@ -136,12 +120,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
             ->setIsCurrent($priceProductScheduleTransfer->getIsCurrent());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     *
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule
-     */
     protected function addProductIdentifierToPriceProductScheduleEntityFromPriceProduct(
         PriceProductTransfer $priceProductTransfer,
         SpyPriceProductSchedule $priceProductScheduleEntity
@@ -173,12 +151,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
         return $productPriceScheduleCollection;
     }
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function mapPriceProductScheduleEntityToPriceProductTransfer(
         SpyPriceProductSchedule $priceProductScheduleEntity,
         PriceProductTransfer $priceProductTransfer
@@ -226,12 +198,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
         return $priceProductTransfer;
     }
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
-     */
     protected function mapPriceProductScheduleEntityToMoneyValueTransfer(
         SpyPriceProductSchedule $priceProductScheduleEntity,
         MoneyValueTransfer $moneyValueTransfer
@@ -254,12 +220,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
             ->setStore($storeTransfer);
     }
 
-    /**
-     * @param \Orm\Zed\Currency\Persistence\SpyCurrency $currencyEntity
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     protected function mapCurrencyEntityToCurrencyTransfer(
         SpyCurrency $currencyEntity,
         CurrencyTransfer $currencyTransfer
@@ -268,12 +228,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
             ->fromArray($currencyEntity->toArray(), true);
     }
 
-    /**
-     * @param \Orm\Zed\Store\Persistence\SpyStore $storeEntity
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
     protected function mapStoreEntityToStoreTransfer(
         SpyStore $storeEntity,
         StoreTransfer $storeTransfer
@@ -281,12 +235,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
         return $storeTransfer->fromArray($storeEntity->toArray(), true);
     }
 
-    /**
-     * @param \Orm\Zed\PriceProduct\Persistence\Base\SpyPriceType $spyPriceType
-     * @param \Generated\Shared\Transfer\PriceTypeTransfer $priceTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceTypeTransfer
-     */
     protected function mapPriceTypeEntityToPriceTypeTransfer(
         SpyPriceType $spyPriceType,
         PriceTypeTransfer $priceTypeTransfer
@@ -295,12 +243,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
             ->fromArray($spyPriceType->toArray(), true);
     }
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     * @param \Generated\Shared\Transfer\PriceProductDimensionTransfer $priceProductDimensionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductDimensionTransfer
-     */
     protected function mapPriceProductScheduleEntityToPriceProductDimensionTransfer(
         SpyPriceProductSchedule $priceProductScheduleEntity,
         PriceProductDimensionTransfer $priceProductDimensionTransfer

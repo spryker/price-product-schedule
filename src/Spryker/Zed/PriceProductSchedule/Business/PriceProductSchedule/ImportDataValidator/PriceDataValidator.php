@@ -17,11 +17,6 @@ class PriceDataValidator extends AbstractImportDataValidator
      */
     protected const ERROR_MESSAGE_GROSS_AND_NET_VALUE = 'Gross and Net Amount must be a positive integer.';
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer|null
-     */
     public function validatePriceProductScheduleImportTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): ?PriceProductScheduleListImportErrorTransfer {
@@ -38,33 +33,18 @@ class PriceDataValidator extends AbstractImportDataValidator
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isGrossPriceValid(PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer): bool
     {
         return $priceProductScheduleImportTransfer->getGrossAmount() === null
             || $this->isPriceFormatValid((string)$priceProductScheduleImportTransfer->getGrossAmount());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isNetPriceValid(PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer): bool
     {
         return $priceProductScheduleImportTransfer->getNetAmount() === null
             || $this->isPriceFormatValid((string)$priceProductScheduleImportTransfer->getNetAmount());
     }
 
-    /**
-     * @param string $price
-     *
-     * @return bool
-     */
     protected function isPriceFormatValid(string $price): bool
     {
         return (is_numeric($price)

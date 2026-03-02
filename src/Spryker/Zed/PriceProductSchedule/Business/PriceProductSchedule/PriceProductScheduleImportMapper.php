@@ -19,21 +19,12 @@ class PriceProductScheduleImportMapper implements PriceProductScheduleImportMapp
      */
     protected $priceProductScheduleConfig;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\PriceProductScheduleConfig $priceProductScheduleConfig
-     */
     public function __construct(
         PriceProductScheduleConfig $priceProductScheduleConfig
     ) {
         $this->priceProductScheduleConfig = $priceProductScheduleConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     * @param \Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer
-     */
     public function mapPriceProductScheduleImportTransferToPriceProductScheduleCriteriaFilterTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer,
         PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer
@@ -42,12 +33,6 @@ class PriceProductScheduleImportMapper implements PriceProductScheduleImportMapp
             ->fromArray($priceProductScheduleImportTransfer->toArray(), true);
     }
 
-    /**
-     * @param array $importData
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleImportTransfer
-     */
     public function mapPriceProductScheduleRowToPriceProductScheduleImportTransfer(
         array $importData,
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
@@ -64,9 +49,6 @@ class PriceProductScheduleImportMapper implements PriceProductScheduleImportMapp
             ->setMetaData(new PriceProductScheduleImportMetaDataTransfer());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer
-     */
     protected function createPriceProductScheduleCriteriaFilterTransfer(): PriceProductScheduleCriteriaFilterTransfer
     {
         return new PriceProductScheduleCriteriaFilterTransfer();

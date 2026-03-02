@@ -61,9 +61,6 @@ class PriceProductScheduleImportTest extends Unit
      */
     protected $currencyFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -75,9 +72,6 @@ class PriceProductScheduleImportTest extends Unit
         $this->currencyFacade = $this->tester->getLocator()->currency()->facade();
     }
 
-    /**
-     * @return void
-     */
     public function testImportPriceProductSchedulesShouldImportValidSchedules(): void
     {
         // Assign
@@ -148,9 +142,6 @@ class PriceProductScheduleImportTest extends Unit
         );
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer
-     */
     protected function havePriceProductScheduledListImportRequest(): PriceProductScheduledListImportRequestTransfer
     {
         $priceProductScheduleListTransfer = $this->tester->havePriceProductScheduleList();
@@ -241,9 +232,6 @@ class PriceProductScheduleImportTest extends Unit
         return $priceProductScheduleImportData;
     }
 
-    /**
-     * @return array
-     */
     public function notValidPriceProductScheduleImportDataProvider(): array
     {
         return [

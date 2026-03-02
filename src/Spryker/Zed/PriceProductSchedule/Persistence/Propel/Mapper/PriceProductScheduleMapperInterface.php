@@ -12,23 +12,11 @@ use Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule;
 
 interface PriceProductScheduleMapperInterface
 {
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function mapPriceProductScheduleEntityToPriceProductScheduleTransfer(
         SpyPriceProductSchedule $priceProductScheduleEntity,
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): PriceProductScheduleTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule $priceProductScheduleEntity
-     *
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule
-     */
     public function mapPriceProductScheduleTransferToPriceProductScheduleEntity(
         PriceProductScheduleTransfer $priceProductScheduleTransfer,
         SpyPriceProductSchedule $priceProductScheduleEntity

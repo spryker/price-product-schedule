@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\PriceProductScheduleTransfer;
 
 interface PriceProductScheduleUpdaterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer
-     */
     public function updateAndApplyPriceProductSchedule(PriceProductScheduleTransfer $priceProductScheduleTransfer): PriceProductScheduleResponseTransfer;
 }

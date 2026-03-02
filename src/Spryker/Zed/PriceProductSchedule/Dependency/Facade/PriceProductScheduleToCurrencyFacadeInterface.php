@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\CurrencyTransfer;
 
 interface PriceProductScheduleToCurrencyFacadeInterface
 {
-    /**
-     * @param string $isoCode
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer|null
-     */
     public function findCurrencyByIsoCode(string $isoCode): ?CurrencyTransfer;
 }

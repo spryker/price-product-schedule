@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\PriceProductScheduleTransfer;
 
 interface PriceProductScheduleMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function mapPriceProductScheduleImportTransferToPriceProductScheduleTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer,
         PriceProductScheduleTransfer $priceProductScheduleTransfer

@@ -22,20 +22,12 @@ class PriceTypeFinder implements PriceTypeFinderInterface
      */
     protected $priceProductFacade;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade
-     */
     public function __construct(
         PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade
     ) {
         $this->priceProductFacade = $priceProductFacade;
     }
 
-    /**
-     * @param string $priceTypeName
-     *
-     * @return \Generated\Shared\Transfer\PriceTypeTransfer|null
-     */
     public function findPriceTypeByName(string $priceTypeName): ?PriceTypeTransfer
     {
         if (isset($this->priceTypeCache[$priceTypeName])) {

@@ -23,11 +23,6 @@ class DateDataValidator extends AbstractImportDataValidator
      */
     protected const FORMAT_DATE = 'Y-m-d\TH:i:sO';
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer|null
-     */
     public function validatePriceProductScheduleImportTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): ?PriceProductScheduleListImportErrorTransfer {
@@ -41,11 +36,6 @@ class DateDataValidator extends AbstractImportDataValidator
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isDatesValid(PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer): bool
     {
         if ($this->isDatesEmpty($priceProductScheduleImportTransfer)) {
@@ -67,22 +57,12 @@ class DateDataValidator extends AbstractImportDataValidator
         return $activeTo > $activeFrom;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isDatesEmpty(PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer): bool
     {
         return $priceProductScheduleImportTransfer->getActiveFrom() === null
             || $priceProductScheduleImportTransfer->getActiveTo() === null;
     }
 
-    /**
-     * @param string $date
-     *
-     * @return \DateTime|null
-     */
     protected function createDateTimeFromFormat(string $date): ?DateTime
     {
         $dateTime = DateTime::createFromFormat(static::FORMAT_DATE, $date);

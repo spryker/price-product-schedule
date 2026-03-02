@@ -45,12 +45,6 @@ class PriceProductScheduleCreator implements PriceProductScheduleCreatorInterfac
      */
     protected $priceProductScheduleListCreator;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Resolver\PriceProductScheduleApplierByProductTypeResolverInterface $priceProductScheduleApplierByProductTypeResolver
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\PriceProductScheduleListFinderInterface $priceProductScheduleListFinder
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\PriceProductScheduleListCreatorInterface $priceProductScheduleListCreator
-     */
     public function __construct(
         PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager,
         PriceProductScheduleApplierByProductTypeResolverInterface $priceProductScheduleApplierByProductTypeResolver,
@@ -63,11 +57,6 @@ class PriceProductScheduleCreator implements PriceProductScheduleCreatorInterfac
         $this->priceProductScheduleListCreator = $priceProductScheduleListCreator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer
-     */
     public function createAndApplyPriceProductSchedule(PriceProductScheduleTransfer $priceProductScheduleTransfer): PriceProductScheduleResponseTransfer
     {
         $priceProductScheduleTransfer = $this
@@ -78,11 +67,6 @@ class PriceProductScheduleCreator implements PriceProductScheduleCreatorInterfac
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     protected function expandPriceProductScheduleTransferWithPriceProductScheduleList(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): PriceProductScheduleTransfer {
@@ -97,11 +81,6 @@ class PriceProductScheduleCreator implements PriceProductScheduleCreatorInterfac
         return $priceProductScheduleTransfer->setPriceProductScheduleList($priceProductScheduleListTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer
-     */
     protected function executeCreateLogicTransaction(PriceProductScheduleTransfer $priceProductScheduleTransfer): PriceProductScheduleResponseTransfer
     {
         $priceProductScheduleResponseTransfer = new PriceProductScheduleResponseTransfer();
@@ -127,11 +106,6 @@ class PriceProductScheduleCreator implements PriceProductScheduleCreatorInterfac
         return $this->addErrorMessage($priceProductScheduleResponseTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer $priceProductScheduleResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer
-     */
     protected function addErrorMessage(PriceProductScheduleResponseTransfer $priceProductScheduleResponseTransfer): PriceProductScheduleResponseTransfer
     {
         $priceProductScheduleErrorTransfer = (new PriceProductScheduleErrorTransfer())

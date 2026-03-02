@@ -12,13 +12,6 @@ use Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer;
 
 abstract class AbstractImportDataValidator implements ImportDataValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     * @param string $errorMessage
-     * @param array $parameters
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer
-     */
     protected function createPriceProductScheduleListImportErrorTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer,
         string $errorMessage,

@@ -17,19 +17,11 @@ class PriceProductTransferPriceTypeDataExpander implements PriceProductTransferD
      */
     protected $priceTypeFinder;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceType\PriceTypeFinderInterface $priceTypeFinder
-     */
     public function __construct(PriceTypeFinderInterface $priceTypeFinder)
     {
         $this->priceTypeFinder = $priceTypeFinder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function expand(PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
         $priceTypeTransfer = $this->priceTypeFinder

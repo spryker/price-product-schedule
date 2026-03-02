@@ -35,11 +35,6 @@ class PriceProductScheduleDataHelper extends Module
 {
     use LocatorHelperTrait;
 
-    /**
-     * @param array $priceProductScheduleOverrideData
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function havePriceProductSchedule(array $priceProductScheduleOverrideData = []): PriceProductScheduleTransfer
     {
         $priceProductScheduleTransfer = (new PriceProductScheduleBuilder($this->preparePriceProductScheduleData($priceProductScheduleOverrideData)))
@@ -53,11 +48,6 @@ class PriceProductScheduleDataHelper extends Module
         return $priceProductScheduleTransfer;
     }
 
-    /**
-     * @param array $priceProductScheduleData
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer
-     */
     public function havePriceProductScheduleList(array $priceProductScheduleData = []): PriceProductScheduleListTransfer
     {
         $priceProductScheduleListTransfer = (new PriceProductScheduleListBuilder($priceProductScheduleData))
@@ -74,70 +64,42 @@ class PriceProductScheduleDataHelper extends Module
         return $priceProductScheduleListTransfer;
     }
 
-    /**
-     * @param array $priceProductScheduleImportData
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleImportTransfer
-     */
     public function havePriceProductScheduleImport(array $priceProductScheduleImportData = []): PriceProductScheduleImportTransfer
     {
         return (new PriceProductScheduleImportBuilder($priceProductScheduleImportData))
             ->build();
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProduct\Business\PriceProductFacadeInterface
-     */
     protected function getPriceProductFacade(): PriceProductFacadeInterface
     {
         return $this->getLocator()->priceProduct()->facade();
     }
 
-    /**
-     * @return \Spryker\Zed\PriceProduct\Persistence\PriceProductQueryContainerInterface
-     */
     protected function getPriceProductQueryContainer(): PriceProductQueryContainerInterface
     {
         return $this->getLocator()->priceProduct()->queryContainer();
     }
 
-    /**
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleListQuery
-     */
     public function getPriceProductScheduleListQuery(): SpyPriceProductScheduleListQuery
     {
         return new SpyPriceProductScheduleListQuery();
     }
 
-    /**
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery
-     */
     public function getPriceProductScheduleQuery(): SpyPriceProductScheduleQuery
     {
         return new SpyPriceProductScheduleQuery();
     }
 
-    /**
-     * @return \Spryker\Zed\Store\Business\StoreFacadeInterface
-     */
     protected function getStoreFacade(): StoreFacadeInterface
     {
         return $this->getLocator()->store()->facade();
     }
 
-    /**
-     * @return \Spryker\Zed\Currency\Business\CurrencyFacadeInterface
-     */
     protected function getCurrencyFacade(): CurrencyFacadeInterface
     {
         return $this->getLocator()->currency()->facade();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule
-     */
     protected function mapPriceProductScheduleTransferToEntity(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): SpyPriceProductSchedule {
@@ -155,11 +117,6 @@ class PriceProductScheduleDataHelper extends Module
         return $spyPriceProductScheduleEntity;
     }
 
-    /**
-     * @param array $priceProductScheduleOverrideData
-     *
-     * @return array
-     */
     protected function preparePriceProductScheduleData(array $priceProductScheduleOverrideData): array
     {
         $priceTypeTransfer = (new PriceTypeBuilder($priceProductScheduleOverrideData[PriceProductScheduleTransfer::PRICE_PRODUCT][PriceProductTransfer::PRICE_TYPE]))

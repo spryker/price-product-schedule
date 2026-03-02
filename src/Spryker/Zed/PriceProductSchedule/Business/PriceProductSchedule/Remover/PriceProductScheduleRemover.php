@@ -38,12 +38,6 @@ class PriceProductScheduleRemover implements PriceProductScheduleRemoverInterfac
      */
     protected $priceProductScheduleDisabler;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleRepositoryInterface $priceProductScheduleRepository
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Resolver\PriceProductScheduleApplierByProductTypeResolverInterface $priceProductScheduleApplierByProductTypeResolver
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleDisablerInterface $priceProductScheduleDisabler
-     */
     public function __construct(
         PriceProductScheduleRepositoryInterface $priceProductScheduleRepository,
         PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager,
@@ -56,11 +50,6 @@ class PriceProductScheduleRemover implements PriceProductScheduleRemoverInterfac
         $this->priceProductScheduleDisabler = $priceProductScheduleDisabler;
     }
 
-    /**
-     * @param int $idPriceProductSchedule
-     *
-     * @return void
-     */
     public function removeAndApplyPriceProductSchedule(int $idPriceProductSchedule): void
     {
         $priceProductScheduleTransfer = $this->priceProductScheduleRepository
@@ -75,11 +64,6 @@ class PriceProductScheduleRemover implements PriceProductScheduleRemoverInterfac
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return void
-     */
     protected function executeRemoveLogicTransaction(PriceProductScheduleTransfer $priceProductScheduleTransfer): void
     {
         $priceProductScheduleTransfer->requireIdPriceProductSchedule();

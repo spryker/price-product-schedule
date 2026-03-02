@@ -23,19 +23,11 @@ class PriceTypeDataValidator extends AbstractImportDataValidator
      */
     protected $priceTypeFinder;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceType\PriceTypeFinderInterface $priceTypeFinder
-     */
     public function __construct(PriceTypeFinderInterface $priceTypeFinder)
     {
         $this->priceTypeFinder = $priceTypeFinder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportErrorTransfer|null
-     */
     public function validatePriceProductScheduleImportTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
     ): ?PriceProductScheduleListImportErrorTransfer {
@@ -50,11 +42,6 @@ class PriceTypeDataValidator extends AbstractImportDataValidator
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     *
-     * @return bool
-     */
     protected function isPriceTypeValid(PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer): bool
     {
         if ($priceProductScheduleImportTransfer->getPriceTypeName() === null) {

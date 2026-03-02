@@ -33,10 +33,6 @@ class PriceProductScheduleUpdater implements PriceProductScheduleUpdaterInterfac
      */
     protected $priceProductScheduleApplierByProductTypeResolver;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Resolver\PriceProductScheduleApplierByProductTypeResolverInterface $priceProductScheduleApplierByProductTypeResolver
-     */
     public function __construct(
         PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager,
         PriceProductScheduleApplierByProductTypeResolverInterface $priceProductScheduleApplierByProductTypeResolver
@@ -45,11 +41,6 @@ class PriceProductScheduleUpdater implements PriceProductScheduleUpdaterInterfac
         $this->priceProductScheduleApplierByProductTypeResolver = $priceProductScheduleApplierByProductTypeResolver;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer
-     */
     public function updateAndApplyPriceProductSchedule(PriceProductScheduleTransfer $priceProductScheduleTransfer): PriceProductScheduleResponseTransfer
     {
         return $this->getTransactionHandler()->handleTransaction(function () use ($priceProductScheduleTransfer): PriceProductScheduleResponseTransfer {
@@ -57,11 +48,6 @@ class PriceProductScheduleUpdater implements PriceProductScheduleUpdaterInterfac
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer
-     */
     protected function executeUpdateAndApplyLogicTransaction(PriceProductScheduleTransfer $priceProductScheduleTransfer): PriceProductScheduleResponseTransfer
     {
         $priceProductScheduleResponseTransfer = new PriceProductScheduleResponseTransfer();
@@ -82,11 +68,6 @@ class PriceProductScheduleUpdater implements PriceProductScheduleUpdaterInterfac
         return $this->addErrorMessage($priceProductScheduleResponseTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer $priceProductScheduleResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleResponseTransfer
-     */
     protected function addErrorMessage(PriceProductScheduleResponseTransfer $priceProductScheduleResponseTransfer): PriceProductScheduleResponseTransfer
     {
         $priceProductScheduleErrorTransfer = (new PriceProductScheduleErrorTransfer())

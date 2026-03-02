@@ -34,9 +34,6 @@ class PriceProductScheduleBusinessTester extends Actor
      */
     public const SERVICE_STORE = 'store';
 
-    /**
-     * @return void
-     */
     public function ensureDatabaseTableIsEmpty(): void
     {
         $priceProductScheduleQuery = $this->getPriceProductScheduleQuery();
@@ -44,9 +41,6 @@ class PriceProductScheduleBusinessTester extends Actor
         $priceProductScheduleQuery->deleteAll();
     }
 
-    /**
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery
-     */
     public function getPriceProductScheduleQuery(): SpyPriceProductScheduleQuery
     {
         return SpyPriceProductScheduleQuery::create();

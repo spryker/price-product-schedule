@@ -19,11 +19,6 @@ interface PriceProductScheduleRepositoryInterface
      */
     public function findPriceProductSchedulesToDisable(): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return bool
-     */
     public function isScheduledPriceForSwitchExists(PriceProductScheduleTransfer $priceProductScheduleTransfer): bool;
 
     /**
@@ -56,20 +51,10 @@ interface PriceProductScheduleRepositoryInterface
      */
     public function findPriceProductSchedulesToEnableByStore(StoreTransfer $storeTransfer): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer
-     *
-     * @return int
-     */
     public function findCountPriceProductScheduleByCriteriaFilter(
         PriceProductScheduleCriteriaFilterTransfer $priceProductScheduleCriteriaFilterTransfer
     ): int;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer|null
-     */
     public function findPriceProductScheduleListById(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): ?PriceProductScheduleListTransfer;
@@ -83,20 +68,10 @@ interface PriceProductScheduleRepositoryInterface
         int $idPriceProductScheduleList
     ): array;
 
-    /**
-     * @param int $idPriceProductSchedule
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer|null
-     */
     public function findPriceProductScheduleById(
         int $idPriceProductSchedule
     ): ?PriceProductScheduleTransfer;
 
-    /**
-     * @param string $name
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer|null
-     */
     public function findPriceProductScheduleListByName(string $name): ?PriceProductScheduleListTransfer;
 
     /**
@@ -121,10 +96,5 @@ interface PriceProductScheduleRepositoryInterface
         int $idProductConcrete
     ): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return bool
-     */
     public function isPriceProductScheduleUnique(PriceProductScheduleTransfer $priceProductScheduleTransfer): bool;
 }

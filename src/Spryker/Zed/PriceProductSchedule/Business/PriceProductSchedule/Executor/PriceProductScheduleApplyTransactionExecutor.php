@@ -35,11 +35,6 @@ class PriceProductScheduleApplyTransactionExecutor implements PriceProductSchedu
      */
     protected $priceProductScheduleEntityManager;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleDisablerInterface $priceProductScheduleDisabler
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     */
     public function __construct(
         PriceProductScheduleDisablerInterface $priceProductScheduleDisabler,
         PriceProductScheduleToPriceProductFacadeInterface $priceProductFacade,
@@ -64,11 +59,6 @@ class PriceProductScheduleApplyTransactionExecutor implements PriceProductSchedu
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return void
-     */
     protected function executeApplyScheduledPrices(PriceProductScheduleTransfer $priceProductScheduleTransfer): void
     {
         $this->priceProductScheduleDisabler->disableNotRelevantPriceProductSchedulesByPriceProductSchedule($priceProductScheduleTransfer);
@@ -81,11 +71,6 @@ class PriceProductScheduleApplyTransactionExecutor implements PriceProductSchedu
         $this->priceProductScheduleEntityManager->savePriceProductSchedule($priceProductScheduleTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function preparePriceProductTransferForPersist(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): PriceProductTransfer {
@@ -106,12 +91,6 @@ class PriceProductScheduleApplyTransactionExecutor implements PriceProductSchedu
         return $priceProductTransferForPersist;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function getPriceProductForPersist(PriceProductTransfer $priceProductTransfer, ?StoreTransfer $storeTransfer): PriceProductTransfer
     {
         $priceProductTransfer

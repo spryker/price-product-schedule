@@ -20,20 +20,12 @@ class PriceProductScheduleListUpdater implements PriceProductScheduleListUpdater
      */
     protected $priceProductScheduleEntityManager;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     */
     public function __construct(
         PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
     ) {
         $this->priceProductScheduleEntityManager = $priceProductScheduleEntityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer
-     */
     public function updatePriceProductScheduleList(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): PriceProductScheduleListResponseTransfer {

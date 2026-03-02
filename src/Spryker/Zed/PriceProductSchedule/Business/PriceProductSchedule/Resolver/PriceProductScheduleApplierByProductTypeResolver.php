@@ -23,10 +23,6 @@ class PriceProductScheduleApplierByProductTypeResolver implements PriceProductSc
      */
     protected $concreteProductPriceProductScheduleApplier;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Applier\AbstractProductPriceProductScheduleApplierInterface $abstractProductPriceProductScheduleApplier
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Applier\ConcreteProductPriceProductScheduleApplierInterface $concreteProductPriceProductScheduleApplier
-     */
     public function __construct(
         AbstractProductPriceProductScheduleApplierInterface $abstractProductPriceProductScheduleApplier,
         ConcreteProductPriceProductScheduleApplierInterface $concreteProductPriceProductScheduleApplier
@@ -35,11 +31,6 @@ class PriceProductScheduleApplierByProductTypeResolver implements PriceProductSc
         $this->concreteProductPriceProductScheduleApplier = $concreteProductPriceProductScheduleApplier;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return void
-     */
     public function applyPriceProductScheduleByProductType(PriceProductScheduleTransfer $priceProductScheduleTransfer): void
     {
         $priceProductScheduleTransfer->requirePriceProduct();

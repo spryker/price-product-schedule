@@ -81,9 +81,6 @@ class PriceProductScheduleApplyTest extends Unit
      */
     protected $storeTransfer;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -95,9 +92,6 @@ class PriceProductScheduleApplyTest extends Unit
         $this->storeTransfer = $this->tester->haveStore([StoreTransfer::NAME => 'DE']);
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleWithDifferentConcreteProductsPriceTypesAndCurrenciesShouldApply(): void
     {
         // Assign
@@ -174,9 +168,6 @@ class PriceProductScheduleApplyTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleWithBiggerPricesAndLowerDateRangeShouldApply(): void
     {
         // Assign
@@ -301,9 +292,6 @@ class PriceProductScheduleApplyTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleWithDifferentConcreteProductsPriceTypesAndCurrenciesShouldApplyIfStoreServiceEmpty(): void
     {
         // Assign
@@ -466,9 +454,6 @@ class PriceProductScheduleApplyTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testPriceProductScheduleInTheDifferentStoreShouldNotApplyIfCurrentStoreDefined(): void
     {
         // Assign
@@ -508,9 +493,6 @@ class PriceProductScheduleApplyTest extends Unit
         );
     }
 
-    /**
-     * @return array
-     */
     protected function getPriceProductData(): array
     {
         $currencyId = $this->tester->haveCurrency();
@@ -528,9 +510,6 @@ class PriceProductScheduleApplyTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function activePriceProductSchedulesDataProvider(): array
     {
         return [

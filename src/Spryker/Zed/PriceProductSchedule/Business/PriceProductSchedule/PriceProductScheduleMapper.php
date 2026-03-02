@@ -16,12 +16,6 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function mapPriceProductScheduleImportTransferToPriceProductScheduleTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer,
         PriceProductScheduleTransfer $priceProductScheduleTransfer
@@ -36,12 +30,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
             ->setPriceProduct($priceProductTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function mapPriceProductScheduleImportTransferToPriceProductTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer,
         PriceProductTransfer $priceProductTransfer
@@ -56,12 +44,6 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
             ->setMoneyValue($moneyValueTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
-     */
     protected function mapMoneyValueTransferFromPriceProductScheduleImportTransfer(
         PriceProductScheduleImportTransfer $priceProductScheduleImportTransfer,
         MoneyValueTransfer $moneyValueTransfer
@@ -76,37 +58,21 @@ class PriceProductScheduleMapper implements PriceProductScheduleMapperInterface
             ->setGrossAmount($priceProductScheduleImportTransfer->getGrossAmount());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function createPriceProductTransfer(): PriceProductTransfer
     {
         return new PriceProductTransfer();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
-     */
     protected function createMoneyValueTransfer(): MoneyValueTransfer
     {
         return new MoneyValueTransfer();
     }
 
-    /**
-     * @param string $code
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     protected function createCurrencyTransfer(string $code): CurrencyTransfer
     {
         return (new CurrencyTransfer())->setCode($code);
     }
 
-    /**
-     * @param string $name
-     *
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
     protected function createStoreTransfer(string $name): StoreTransfer
     {
         return (new StoreTransfer())->setName($name);

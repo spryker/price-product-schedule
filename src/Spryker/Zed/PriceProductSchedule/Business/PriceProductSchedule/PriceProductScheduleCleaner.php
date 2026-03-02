@@ -16,19 +16,11 @@ class PriceProductScheduleCleaner implements PriceProductScheduleCleanerInterfac
      */
     protected $priceProductScheduleEntityManager;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     */
     public function __construct(PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager)
     {
         $this->priceProductScheduleEntityManager = $priceProductScheduleEntityManager;
     }
 
-    /**
-     * @param int $daysRetained
-     *
-     * @return void
-     */
     public function cleanAppliedScheduledPrices(int $daysRetained): void
     {
         $this->priceProductScheduleEntityManager->deleteOldScheduledPrices($daysRetained);

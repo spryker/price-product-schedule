@@ -26,11 +26,6 @@ class PriceProductScheduleEntityManager extends AbstractEntityManager implements
      */
     protected const PATTERN_MINUS_DAYS = '-%s days';
 
-    /**
-     * @param int $daysRetained
-     *
-     * @return void
-     */
     public function deleteOldScheduledPrices(int $daysRetained): void
     {
         $priceProductScheduleQuery = $this->getFactory()
@@ -46,11 +41,6 @@ class PriceProductScheduleEntityManager extends AbstractEntityManager implements
         $priceProductScheduleCollection->delete();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function savePriceProductSchedule(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): PriceProductScheduleTransfer {
@@ -78,11 +68,6 @@ class PriceProductScheduleEntityManager extends AbstractEntityManager implements
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     public function createPriceProductSchedule(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): PriceProductScheduleTransfer {
@@ -103,11 +88,6 @@ class PriceProductScheduleEntityManager extends AbstractEntityManager implements
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer
-     */
     public function createPriceProductScheduleList(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): PriceProductScheduleListTransfer {
@@ -165,11 +145,6 @@ class PriceProductScheduleEntityManager extends AbstractEntityManager implements
         return $priceProductScheduleListTransfer;
     }
 
-    /**
-     * @param int $idPriceProductSchedule
-     *
-     * @return void
-     */
     public function deletePriceProductScheduleById(int $idPriceProductSchedule): void
     {
         $this->getFactory()
@@ -178,11 +153,6 @@ class PriceProductScheduleEntityManager extends AbstractEntityManager implements
             ->delete();
     }
 
-    /**
-     * @param int $idPriceProductScheduleList
-     *
-     * @return void
-     */
     public function deletePriceProductScheduleListById(int $idPriceProductScheduleList): void
     {
         $this->getFactory()

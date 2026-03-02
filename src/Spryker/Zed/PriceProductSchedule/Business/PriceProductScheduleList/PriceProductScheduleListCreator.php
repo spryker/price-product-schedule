@@ -30,11 +30,6 @@ class PriceProductScheduleListCreator implements PriceProductScheduleListCreator
      */
     protected $priceProductScheduleConfig;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleList\Expander\PriceProductScheduleListUserExpanderInterface $priceProductScheduleListUserExpander
-     * @param \Spryker\Zed\PriceProductSchedule\PriceProductScheduleConfig $priceProductScheduleConfig
-     */
     public function __construct(
         PriceProductScheduleEntityManagerInterface $priceProductScheduleEntityManager,
         PriceProductScheduleListUserExpanderInterface $priceProductScheduleListUserExpander,
@@ -45,11 +40,6 @@ class PriceProductScheduleListCreator implements PriceProductScheduleListCreator
         $this->priceProductScheduleConfig = $priceProductScheduleConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer
-     */
     public function createPriceProductScheduleList(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): PriceProductScheduleListResponseTransfer {
@@ -64,9 +54,6 @@ class PriceProductScheduleListCreator implements PriceProductScheduleListCreator
             ->setPriceProductScheduleList($priceProductScheduleListTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer
-     */
     public function createDefaultPriceProductScheduleList(): PriceProductScheduleListTransfer
     {
         $priceProductScheduleListTransfer = new PriceProductScheduleListTransfer();

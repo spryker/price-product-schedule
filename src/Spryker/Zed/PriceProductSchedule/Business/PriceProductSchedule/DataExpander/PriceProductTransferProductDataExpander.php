@@ -17,19 +17,11 @@ class PriceProductTransferProductDataExpander implements PriceProductTransferDat
      */
     protected $productFinder;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\Product\ProductFinderInterface $productFinder
-     */
     public function __construct(ProductFinderInterface $productFinder)
     {
         $this->productFinder = $productFinder;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function expand(PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
         if ($priceProductTransfer->getSkuProductAbstract()) {
@@ -43,11 +35,6 @@ class PriceProductTransferProductDataExpander implements PriceProductTransferDat
         return $priceProductTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function expandPriceProductWithAbstractProductId(
         PriceProductTransfer $priceProductTransfer
     ): PriceProductTransfer {
@@ -57,11 +44,6 @@ class PriceProductTransferProductDataExpander implements PriceProductTransferDat
         return $priceProductTransfer->setIdProductAbstract($productAbstractId);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function expandPriceProductWithProductId(PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
         $productConcreteId = $this->productFinder

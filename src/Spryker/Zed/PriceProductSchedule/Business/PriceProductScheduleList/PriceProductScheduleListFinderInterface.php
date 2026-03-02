@@ -12,17 +12,9 @@ use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
 
 interface PriceProductScheduleListFinderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $requestedPriceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer
-     */
     public function findPriceProductScheduleList(
         PriceProductScheduleListTransfer $requestedPriceProductScheduleListTransfer
     ): PriceProductScheduleListResponseTransfer;
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListTransfer|null
-     */
     public function findDefaultPriceProductScheduleList(): ?PriceProductScheduleListTransfer;
 }

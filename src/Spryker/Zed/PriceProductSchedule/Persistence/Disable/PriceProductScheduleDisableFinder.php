@@ -26,10 +26,6 @@ class PriceProductScheduleDisableFinder implements PriceProductScheduleDisableFi
      */
     protected $priceProductScheduleMapper;
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery $priceProductScheduleQuery
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\Propel\Mapper\PriceProductScheduleMapperInterface $priceProductScheduleMapper
-     */
     public function __construct(
         SpyPriceProductScheduleQuery $priceProductScheduleQuery,
         PriceProductScheduleMapperInterface $priceProductScheduleMapper
@@ -61,11 +57,6 @@ class PriceProductScheduleDisableFinder implements PriceProductScheduleDisableFi
             ->mapPriceProductScheduleEntitiesToPriceProductScheduleTransfers($priceProductScheduleEntities);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return bool
-     */
     public function isScheduledPriceForSwitchExists(PriceProductScheduleTransfer $priceProductScheduleTransfer): bool
     {
         $priceProductTransfer = $priceProductScheduleTransfer->getPriceProductOrFail();
@@ -86,12 +77,6 @@ class PriceProductScheduleDisableFinder implements PriceProductScheduleDisableFi
         return $priceProductScheduleQuery->exists();
     }
 
-    /**
-     * @param \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery $priceProductScheduleQuery
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery
-     */
     protected function addProductIdentifierToIsScheduledPriceForSwitchExists(
         SpyPriceProductScheduleQuery $priceProductScheduleQuery,
         PriceProductTransfer $priceProductTransfer

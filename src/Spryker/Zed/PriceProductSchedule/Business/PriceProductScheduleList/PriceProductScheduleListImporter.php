@@ -55,11 +55,6 @@ class PriceProductScheduleListImporter implements PriceProductScheduleListImport
         $this->dataExpanderList = $dataExpanderList;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer $priceProductScheduledListImportRequest
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportResponseTransfer
-     */
     public function importPriceProductSchedules(
         PriceProductScheduledListImportRequestTransfer $priceProductScheduledListImportRequest
     ): PriceProductScheduleListImportResponseTransfer {
@@ -97,11 +92,6 @@ class PriceProductScheduleListImporter implements PriceProductScheduleListImport
         return $priceProductScheduledListImportResponse;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleTransfer $priceProductScheduleTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleTransfer
-     */
     protected function expandPriceProductTransfer(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): PriceProductScheduleTransfer {
@@ -114,11 +104,6 @@ class PriceProductScheduleListImporter implements PriceProductScheduleListImport
         return $priceProductScheduleTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduleListTransfer $priceProductScheduleListTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportResponseTransfer
-     */
     protected function createPriceProductScheduleListImportResponseTransfer(
         PriceProductScheduleListTransfer $priceProductScheduleListTransfer
     ): PriceProductScheduleListImportResponseTransfer {

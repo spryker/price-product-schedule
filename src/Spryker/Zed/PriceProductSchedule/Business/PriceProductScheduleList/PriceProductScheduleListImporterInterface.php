@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\PriceProductScheduleListImportResponseTransfer;
 
 interface PriceProductScheduleListImporterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer $priceProductScheduledListImportRequest
-     *
-     * @return \Generated\Shared\Transfer\PriceProductScheduleListImportResponseTransfer
-     */
     public function importPriceProductSchedules(
         PriceProductScheduledListImportRequestTransfer $priceProductScheduledListImportRequest
     ): PriceProductScheduleListImportResponseTransfer;

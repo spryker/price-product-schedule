@@ -37,12 +37,6 @@ class PriceProductScheduleApplier implements PriceProductScheduleApplierInterfac
      */
     protected $applyScheduledPriceTransactionExecutor;
 
-    /**
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\PriceProductScheduleDisablerInterface $priceProductScheduleDisabler
-     * @param \Spryker\Zed\PriceProductSchedule\Persistence\PriceProductScheduleRepositoryInterface $priceProductScheduleRepository
-     * @param \Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\PriceProductSchedule\Business\PriceProductSchedule\Executor\PriceProductScheduleApplyTransactionExecutorInterface $applyScheduledPriceTransactionExecutor
-     */
     public function __construct(
         PriceProductScheduleDisablerInterface $priceProductScheduleDisabler,
         PriceProductScheduleRepositoryInterface $priceProductScheduleRepository,
@@ -55,11 +49,6 @@ class PriceProductScheduleApplier implements PriceProductScheduleApplierInterfac
         $this->applyScheduledPriceTransactionExecutor = $applyScheduledPriceTransactionExecutor;
     }
 
-    /**
-     * @param string|null $storeName
-     *
-     * @return void
-     */
     public function applyScheduledPrices(?string $storeName = null): void
     {
         $productSchedulePricesForEnable = $this->resolvePriceProductSchedulesToEnable($storeName);
