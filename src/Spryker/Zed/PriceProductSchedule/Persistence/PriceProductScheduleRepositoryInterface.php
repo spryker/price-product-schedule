@@ -8,6 +8,7 @@
 namespace Spryker\Zed\PriceProductSchedule\Persistence;
 
 use Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer;
+use Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleTransfer;
 use Generated\Shared\Transfer\StoreTransfer;
@@ -97,4 +98,10 @@ interface PriceProductScheduleRepositoryInterface
     ): array;
 
     public function isPriceProductScheduleUnique(PriceProductScheduleTransfer $priceProductScheduleTransfer): bool;
+
+    public function findPriceProductScheduleExportItemsByIdPriceProductScheduleList(
+        int $idPriceProductScheduleList,
+        int $lastProcessedId,
+        int $limit
+    ): PriceProductScheduleExportItemCollectionTransfer;
 }

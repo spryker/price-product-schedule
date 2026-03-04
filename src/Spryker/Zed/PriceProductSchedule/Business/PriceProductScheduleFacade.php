@@ -9,6 +9,8 @@ namespace Spryker\Zed\PriceProductSchedule\Business;
 
 use Generated\Shared\Transfer\PriceProductScheduleCsvValidationResultTransfer;
 use Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer;
+use Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer;
+use Generated\Shared\Transfer\PriceProductScheduleExportItemCriteriaTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListImportResponseTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
@@ -267,5 +269,25 @@ class PriceProductScheduleFacade extends AbstractFacade implements PriceProductS
         return $this->getFactory()
             ->createPriceProductScheduleListRemover()
             ->removePriceProductScheduleList($idPriceProductScheduleList);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\PriceProductScheduleExportItemCriteriaTransfer $priceProductScheduleExportItemCriteriaTransfer
+     *
+     * @return \Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer
+     */
+    public function getPriceProductScheduleExportItemCollection(
+        PriceProductScheduleExportItemCriteriaTransfer $priceProductScheduleExportItemCriteriaTransfer,
+    ): PriceProductScheduleExportItemCollectionTransfer {
+        return $this->getRepository()
+            ->findPriceProductScheduleExportItemsByIdPriceProductScheduleList(
+                $priceProductScheduleExportItemCriteriaTransfer->getIdPriceProductScheduleListOrFail(),
+                $priceProductScheduleExportItemCriteriaTransfer->getLastProcessedIdOrFail(),
+                $priceProductScheduleExportItemCriteriaTransfer->getLimitOrFail(),
+            );
     }
 }

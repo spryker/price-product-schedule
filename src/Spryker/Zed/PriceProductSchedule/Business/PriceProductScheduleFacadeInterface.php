@@ -9,6 +9,8 @@ namespace Spryker\Zed\PriceProductSchedule\Business;
 
 use Generated\Shared\Transfer\PriceProductScheduleCsvValidationResultTransfer;
 use Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer;
+use Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer;
+use Generated\Shared\Transfer\PriceProductScheduleExportItemCriteriaTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListImportResponseTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
@@ -223,4 +225,22 @@ interface PriceProductScheduleFacadeInterface
      * @return \Generated\Shared\Transfer\PriceProductScheduleListResponseTransfer
      */
     public function removePriceProductScheduleList(int $idPriceProductScheduleList): PriceProductScheduleListResponseTransfer;
+
+    /**
+     * Specification:
+     * - Requires `PriceProductScheduleExportItemCriteriaTransfer.idPriceProductScheduleList` to be set.
+     * - Requires `PriceProductScheduleExportItemCriteriaTransfer.lastProcessedId` to be set.
+     * - Requires `PriceProductScheduleExportItemCriteriaTransfer.limit` to be set.
+     * - Finds price product schedule export items by schedule list identifier using cursor-based pagination.
+     * - Returns `PriceProductScheduleExportItemCollectionTransfer` with export items joined with store, currency, price type, and product data.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\PriceProductScheduleExportItemCriteriaTransfer $priceProductScheduleExportItemCriteriaTransfer
+     *
+     * @return \Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer
+     */
+    public function getPriceProductScheduleExportItemCollection(
+        PriceProductScheduleExportItemCriteriaTransfer $priceProductScheduleExportItemCriteriaTransfer,
+    ): PriceProductScheduleExportItemCollectionTransfer;
 }

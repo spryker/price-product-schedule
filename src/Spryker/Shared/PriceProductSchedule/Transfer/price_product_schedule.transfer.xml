@@ -157,6 +157,29 @@
         <property name="idUser" type="int"/>
     </transfer>
 
+    <transfer name="PriceProductScheduleExportItem" strict="true">
+        <property name="idPriceProductSchedule" type="int"/>
+        <property name="abstractSku" type="string"/>
+        <property name="concreteSku" type="string"/>
+        <property name="priceTypeName" type="string"/>
+        <property name="storeName" type="string"/>
+        <property name="currencyCode" type="string"/>
+        <property name="netAmount" type="int"/>
+        <property name="grossAmount" type="int"/>
+        <property name="activeFrom" type="string"/>
+        <property name="activeTo" type="string"/>
+    </transfer>
+
+    <transfer name="PriceProductScheduleExportItemCriteria" strict="true">
+        <property name="idPriceProductScheduleList" type="int"/>
+        <property name="lastProcessedId" type="int"/>
+        <property name="limit" type="int"/>
+    </transfer>
+
+    <transfer name="PriceProductScheduleExportItemCollection" strict="true">
+        <property name="priceProductScheduleExportItems" type="PriceProductScheduleExportItem[]" singular="priceProductScheduleExportItem"/>
+    </transfer>
+
     <transfer name="PriceProductCriteria">
     </transfer>
 
