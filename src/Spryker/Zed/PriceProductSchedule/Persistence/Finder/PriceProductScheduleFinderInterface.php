@@ -51,4 +51,22 @@ interface PriceProductScheduleFinderInterface
     public function findPriceProductSchedulesByIdPriceProductScheduleList(
         int $idPriceProductScheduleList
     ): array;
+
+    /**
+     * @module Store
+     * @module Currency
+     * @module PriceProduct
+     * @module Product
+     *
+     * @param int $idPriceProductScheduleList
+     * @param int $lastProcessedId
+     * @param int $limit
+     *
+     * @return array<\Generated\Shared\Transfer\PriceProductScheduleExportItemTransfer>
+     */
+    public function findPriceProductScheduleExportItemsByIdPriceProductScheduleList(
+        int $idPriceProductScheduleList,
+        int $lastProcessedId,
+        int $limit
+    ): array;
 }

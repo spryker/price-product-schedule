@@ -7,7 +7,9 @@
 
 namespace Spryker\Zed\PriceProductSchedule\Persistence;
 
+use ArrayObject;
 use Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer;
+use Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleTransfer;
 use Generated\Shared\Transfer\StoreTransfer;
@@ -193,5 +195,29 @@ class PriceProductScheduleRepository extends AbstractRepository implements Price
         return $this->getFactory()
             ->createPriceProductScheduleFinder()
             ->findPriceProductSchedulesByIdPriceProductScheduleList($idPriceProductScheduleList);
+    }
+
+    /**
+     * @param int $idPriceProductScheduleList
+     * @param int $lastProcessedId
+     * @param int $limit
+     *
+     * @return \Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer
+     */
+    public function findPriceProductScheduleExportItemsByIdPriceProductScheduleList(
+        int $idPriceProductScheduleList,
+        int $lastProcessedId,
+        int $limit
+    ): PriceProductScheduleExportItemCollectionTransfer {
+        $exportItems = $this->getFactory()
+            ->createPriceProductScheduleFinder()
+            ->findPriceProductScheduleExportItemsByIdPriceProductScheduleList(
+                $idPriceProductScheduleList,
+                $lastProcessedId,
+                $limit,
+            );
+
+        return (new PriceProductScheduleExportItemCollectionTransfer())
+            ->setPriceProductScheduleExportItems(new ArrayObject($exportItems));
     }
 }

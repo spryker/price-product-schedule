@@ -9,11 +9,18 @@ namespace Spryker\Zed\PriceProductSchedule\Persistence\Finder;
 
 use DateTime;
 use Generated\Shared\Transfer\PriceProductScheduleCriteriaFilterTransfer;
+use Generated\Shared\Transfer\PriceProductScheduleExportItemTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleTransfer;
+use Orm\Zed\Currency\Persistence\Map\SpyCurrencyTableMap;
+use Orm\Zed\PriceProduct\Persistence\Map\SpyPriceTypeTableMap;
+use Orm\Zed\PriceProductSchedule\Persistence\Map\SpyPriceProductScheduleTableMap;
 use Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductSchedule;
 use Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery;
+use Orm\Zed\Product\Persistence\Map\SpyProductAbstractTableMap;
+use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
+use Orm\Zed\Store\Persistence\Map\SpyStoreTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\PriceProductSchedule\Persistence\Propel\Mapper\PriceProductScheduleMapperInterface;
-use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
 
 class PriceProductScheduleFinder implements PriceProductScheduleFinderInterface
 {
@@ -174,6 +181,78 @@ class PriceProductScheduleFinder implements PriceProductScheduleFinderInterface
             ->mapPriceProductScheduleEntitiesToPriceProductScheduleTransfers(
                 $priceProductScheduleEntityCollection,
             );
+    }
+
+    /**
+     * @module Store
+     * @module Currency
+     * @module PriceProduct
+     * @module Product
+     *
+     * @param int $idPriceProductScheduleList
+     * @param int $lastProcessedId
+     * @param int $limit
+     *
+     * @return array<\Generated\Shared\Transfer\PriceProductScheduleExportItemTransfer>
+     */
+    public function findPriceProductScheduleExportItemsByIdPriceProductScheduleList(
+        int $idPriceProductScheduleList,
+        int $lastProcessedId,
+        int $limit
+    ): array {
+        /** @var array<array<string, string|null>> $rows */
+        $rows = $this->priceProductScheduleQuery
+            ->filterByFkPriceProductScheduleList($idPriceProductScheduleList)
+            ->filterByIdPriceProductSchedule($lastProcessedId, Criteria::GREATER_THAN)
+            ->joinWithCurrency()
+            ->joinWithStore()
+            ->joinWithPriceType()
+            ->leftJoinWithProduct()
+            ->leftJoinWithProductAbstract()
+            ->withColumn(SpyPriceProductScheduleTableMap::COL_ID_PRICE_PRODUCT_SCHEDULE, PriceProductScheduleExportItemTransfer::ID_PRICE_PRODUCT_SCHEDULE)
+            ->withColumn(SpyProductAbstractTableMap::COL_SKU, PriceProductScheduleExportItemTransfer::ABSTRACT_SKU)
+            ->withColumn(SpyProductTableMap::COL_SKU, PriceProductScheduleExportItemTransfer::CONCRETE_SKU)
+            ->withColumn(SpyCurrencyTableMap::COL_CODE, PriceProductScheduleExportItemTransfer::CURRENCY_CODE)
+            ->withColumn(SpyStoreTableMap::COL_NAME, PriceProductScheduleExportItemTransfer::STORE_NAME)
+            ->withColumn(SpyPriceTypeTableMap::COL_NAME, PriceProductScheduleExportItemTransfer::PRICE_TYPE_NAME)
+            ->withColumn(SpyPriceProductScheduleTableMap::COL_NET_PRICE, PriceProductScheduleExportItemTransfer::NET_AMOUNT)
+            ->withColumn(SpyPriceProductScheduleTableMap::COL_GROSS_PRICE, PriceProductScheduleExportItemTransfer::GROSS_AMOUNT)
+            ->withColumn(SpyPriceProductScheduleTableMap::COL_ACTIVE_FROM, PriceProductScheduleExportItemTransfer::ACTIVE_FROM)
+            ->withColumn(SpyPriceProductScheduleTableMap::COL_ACTIVE_TO, PriceProductScheduleExportItemTransfer::ACTIVE_TO)
+            ->select([
+                PriceProductScheduleExportItemTransfer::ID_PRICE_PRODUCT_SCHEDULE,
+                PriceProductScheduleExportItemTransfer::ABSTRACT_SKU,
+                PriceProductScheduleExportItemTransfer::CONCRETE_SKU,
+                PriceProductScheduleExportItemTransfer::CURRENCY_CODE,
+                PriceProductScheduleExportItemTransfer::STORE_NAME,
+                PriceProductScheduleExportItemTransfer::PRICE_TYPE_NAME,
+                PriceProductScheduleExportItemTransfer::NET_AMOUNT,
+                PriceProductScheduleExportItemTransfer::GROSS_AMOUNT,
+                PriceProductScheduleExportItemTransfer::ACTIVE_FROM,
+                PriceProductScheduleExportItemTransfer::ACTIVE_TO,
+            ])
+            ->orderByIdPriceProductSchedule()
+            ->setLimit($limit)
+            ->find()
+            ->getData();
+
+        return $this->mapRowsToPriceProductScheduleExportItemTransfers($rows);
+    }
+
+    /**
+     * @param array<array<string, string|null>> $rows
+     *
+     * @return array<\Generated\Shared\Transfer\PriceProductScheduleExportItemTransfer>
+     */
+    protected function mapRowsToPriceProductScheduleExportItemTransfers(array $rows): array
+    {
+        $transfers = [];
+
+        foreach ($rows as $row) {
+            $transfers[] = (new PriceProductScheduleExportItemTransfer())->fromArray($row, true);
+        }
+
+        return $transfers;
     }
 
     /**
