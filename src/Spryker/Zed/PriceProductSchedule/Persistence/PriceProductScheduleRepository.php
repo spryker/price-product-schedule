@@ -13,6 +13,7 @@ use Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleTransfer;
 use Generated\Shared\Transfer\StoreTransfer;
+use Generator;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 
 /**
@@ -72,6 +73,19 @@ class PriceProductScheduleRepository extends AbstractRepository implements Price
         return $this->getFactory()
             ->createPriceProductScheduleDisableFinder()
             ->findSimilarPriceProductSchedulesToDisable($priceProductScheduleTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
+     * @param int $limit
+     *
+     * @return \Generator<array<\Generated\Shared\Transfer\PriceProductScheduleTransfer>>
+     */
+    public function getPriceProductSchedulesToEnableByStoreGenerator(StoreTransfer $storeTransfer, int $limit): Generator
+    {
+        return $this->getFactory()
+           ->createPriceProductScheduleEnableFinder()
+           ->getPriceProductSchedulesToEnableByStoreGenerator($storeTransfer, $limit);
     }
 
     /**

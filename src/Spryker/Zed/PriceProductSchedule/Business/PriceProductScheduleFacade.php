@@ -8,6 +8,8 @@
 namespace Spryker\Zed\PriceProductSchedule\Business;
 
 use Generated\Shared\Transfer\PriceProductScheduleCsvValidationResultTransfer;
+use Generated\Shared\Transfer\PriceProductScheduledApplyRequestTransfer;
+use Generated\Shared\Transfer\PriceProductScheduledApplyResponseTransfer;
 use Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleExportItemCriteriaTransfer;
@@ -31,15 +33,36 @@ class PriceProductScheduleFacade extends AbstractFacade implements PriceProductS
      *
      * @api
      *
+     * @deprecated Use {@link \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleFacade::applyAllScheduledPrices()} instead.
+     *
      * @param string|null $storeName
      *
      * @return void
      */
     public function applyScheduledPrices(?string $storeName = null): void
     {
-        $this->getFactory()
+        $this->applyAllScheduledPrices(
+            (new PriceProductScheduledApplyRequestTransfer())
+            ->setBatchSize($this->getFactory()->getConfig()->getApplyBatchSize())
+            ->setStoreName($storeName),
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\PriceProductScheduledApplyRequestTransfer $priceProductScheduledApplyRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\PriceProductScheduledApplyResponseTransfer
+     */
+    public function applyAllScheduledPrices(
+        PriceProductScheduledApplyRequestTransfer $priceProductScheduledApplyRequestTransfer
+    ): PriceProductScheduledApplyResponseTransfer {
+        return $this->getFactory()
             ->createPriceProductScheduleApplier()
-            ->applyScheduledPrices($storeName);
+            ->applyAllScheduledPrices($priceProductScheduledApplyRequestTransfer);
     }
 
     /**

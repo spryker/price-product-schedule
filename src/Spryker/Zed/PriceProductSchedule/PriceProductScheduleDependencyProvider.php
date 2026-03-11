@@ -7,6 +7,7 @@
 
 namespace Spryker\Zed\PriceProductSchedule;
 
+use Propel\Runtime\Propel;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToCurrencyFacadeBridge;
@@ -57,6 +58,11 @@ class PriceProductScheduleDependencyProvider extends AbstractBundleDependencyPro
      */
     public const SERVICE_UTIL_CSV = 'SERVICE_UTIL_CSV';
 
+    /**
+     * @var string
+     */
+    public const CONNECTION_DATABASE = 'CONNECTION_DATABASE';
+
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = $this->addPriceProductFacade($container);
@@ -72,6 +78,7 @@ class PriceProductScheduleDependencyProvider extends AbstractBundleDependencyPro
     public function providePersistenceLayerDependencies(Container $container): Container
     {
         $container = $this->addPropelFacade($container);
+        $container = $this->addDatabaseConnection($container);
 
         return $container;
     }
@@ -115,6 +122,15 @@ class PriceProductScheduleDependencyProvider extends AbstractBundleDependencyPro
             return new PriceProductScheduleToPropelFacadeBridge(
                 $container->getLocator()->propel()->facade(),
             );
+        });
+
+        return $container;
+    }
+
+    protected function addDatabaseConnection(Container $container): Container
+    {
+        $container->set(static::CONNECTION_DATABASE, function () {
+            return Propel::getConnection();
         });
 
         return $container;

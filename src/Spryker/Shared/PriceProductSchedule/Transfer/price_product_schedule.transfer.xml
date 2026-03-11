@@ -190,4 +190,17 @@
     <transfer name="PriceProductCollectionResponse">
     </transfer>
 
+    <transfer name="PriceProductScheduledApplyRequest" strict="true">
+        <property name="storeName" type="string"/>
+        <property name="processAll" type="bool"/>
+        <property name="batchSize" type="int"/>
+    </transfer>
+
+    <transfer name="PriceProductScheduledApplyResponse" strict="true">
+        <property name="errors" type="Error[]" singular="error"/>
+    </transfer>
+
+    <transfer name="Error">
+    </transfer>
+
 </transfers>

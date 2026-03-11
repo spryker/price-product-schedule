@@ -9,6 +9,7 @@ namespace Spryker\Zed\PriceProductSchedule\Persistence;
 
 use Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleListQuery;
 use Orm\Zed\PriceProductSchedule\Persistence\SpyPriceProductScheduleQuery;
+use Propel\Runtime\Connection\ConnectionInterface;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
 use Spryker\Zed\PriceProductSchedule\Dependency\Facade\PriceProductScheduleToPropelFacadeInterface;
 use Spryker\Zed\PriceProductSchedule\Persistence\Disable\PriceProductScheduleDisableFinder;
@@ -70,6 +71,7 @@ class PriceProductSchedulePersistenceFactory extends AbstractPersistenceFactory 
             $this,
             $this->getConfig(),
             $this->createPriceProductScheduleMapper(),
+            $this->getDatabaseConnection(),
         );
     }
 
@@ -92,5 +94,10 @@ class PriceProductSchedulePersistenceFactory extends AbstractPersistenceFactory 
     public function getPropelFacade(): PriceProductScheduleToPropelFacadeInterface
     {
         return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::FACADE_PROPEL);
+    }
+
+    public function getDatabaseConnection(): ConnectionInterface
+    {
+        return $this->getProvidedDependency(PriceProductScheduleDependencyProvider::CONNECTION_DATABASE);
     }
 }

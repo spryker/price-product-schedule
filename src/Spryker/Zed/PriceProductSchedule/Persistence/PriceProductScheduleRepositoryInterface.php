@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleListTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleTransfer;
 use Generated\Shared\Transfer\StoreTransfer;
+use Generator;
 
 interface PriceProductScheduleRepositoryInterface
 {
@@ -44,6 +45,14 @@ interface PriceProductScheduleRepositoryInterface
     public function findSimilarPriceProductSchedulesToDisable(
         PriceProductScheduleTransfer $priceProductScheduleTransfer
     ): array;
+
+    /**
+     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
+     * @param int $limit
+     *
+     * @return \Generator<array<\Generated\Shared\Transfer\PriceProductScheduleTransfer>>
+     */
+    public function getPriceProductSchedulesToEnableByStoreGenerator(StoreTransfer $storeTransfer, int $limit): Generator;
 
     /**
      * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer

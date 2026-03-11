@@ -8,9 +8,18 @@
 namespace Spryker\Zed\PriceProductSchedule\Persistence\Enable;
 
 use Generated\Shared\Transfer\StoreTransfer;
+use Generator;
 
 interface PriceProductScheduleEnableFinderInterface
 {
+    /**
+     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
+     * @param int $limit
+     *
+     * @return \Generator<array<\Generated\Shared\Transfer\PriceProductScheduleTransfer>>
+     */
+    public function getPriceProductSchedulesToEnableByStoreGenerator(StoreTransfer $storeTransfer, int $limit): Generator;
+
     /**
      * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
      *

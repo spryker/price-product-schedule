@@ -61,6 +61,29 @@
             <index-column name="fk_price_product_schedule_list"/>
         </index>
 
+        <index name="index-spy_price_product_schedule-outer_pick">
+            <index-column name="fk_store"/>
+            <index-column name="is_current"/>
+            <index-column name="active_to"/>
+            <index-column name="active_from"/>
+            <index-column name="fk_price_product_schedule_list"/>
+            <index-column name="id_price_product_schedule"/>
+        </index>
+
+        <index name="index-spy_price_product_schedule-schedule_apply">
+            <index-column name="fk_price_type"/>
+            <index-column name="fk_currency"/>
+            <index-column name="fk_product"/>
+            <index-column name="fk_product_abstract"/>
+            <index-column name="active_to"/>
+            <index-column name="gross_price"/>
+            <index-column name="net_price"/>
+            <index-column name="id_price_product_schedule"/>
+            <index-column name="fk_store"/>
+            <index-column name="fk_price_product_schedule_list"/>
+            <index-column name="active_from"/>
+        </index>
+
         <id-method-parameter value="spy_price_product_schedule_pk_seq"/>
     </table>
 
@@ -83,6 +106,10 @@
         </index>
         <index name="index-spy_price_product_schedule_list-name">
             <index-column name="name"/>
+        </index>
+        <index name="idx_sppsl_active">
+            <index-column name="is_active"/>
+            <index-column name="id_price_product_schedule_list"/>
         </index>
     </table>
 

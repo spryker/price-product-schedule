@@ -8,6 +8,8 @@
 namespace Spryker\Zed\PriceProductSchedule\Business;
 
 use Generated\Shared\Transfer\PriceProductScheduleCsvValidationResultTransfer;
+use Generated\Shared\Transfer\PriceProductScheduledApplyRequestTransfer;
+use Generated\Shared\Transfer\PriceProductScheduledApplyResponseTransfer;
 use Generated\Shared\Transfer\PriceProductScheduledListImportRequestTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleExportItemCollectionTransfer;
 use Generated\Shared\Transfer\PriceProductScheduleExportItemCriteriaTransfer;
@@ -29,11 +31,35 @@ interface PriceProductScheduleFacadeInterface
      *
      * @api
      *
+     * @deprecated Use {@link \Spryker\Zed\PriceProductSchedule\Business\PriceProductScheduleFacadeInterface::applyAllScheduledPrices()} instead.
+     *
      * @param string|null $storeName
      *
      * @return void
      */
     public function applyScheduledPrices(?string $storeName = null): void;
+
+    /**
+     * Specification:
+     * - Applies scheduled prices using a memory-efficient generator with pagination.
+     * - Requires `PriceProductScheduledApplyRequestTransfer.storeName` to process a specific store, processes all stores otherwise.
+     * - Requires `PriceProductScheduledApplyRequestTransfer.batchSize` for pagination of scheduled price products to apply.
+     * - Processes all available batches per store when `PriceProductScheduledApplyRequestTransfer.processAll` is `true`.
+     * - Processes only one batch per store when `PriceProductScheduledApplyRequestTransfer.processAll` is `false` or not set.
+     * - Persists price product store for applied scheduled price products.
+     * - Disables not relevant price product schedules for applied scheduled price products.
+     * - Reverts price products from the fallback price types for scheduled product prices that are finished.
+     * - Returns errors collected during processing in `PriceProductScheduledApplyResponseTransfer.errors`.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\PriceProductScheduledApplyRequestTransfer $priceProductScheduledApplyRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\PriceProductScheduledApplyResponseTransfer
+     */
+    public function applyAllScheduledPrices(
+        PriceProductScheduledApplyRequestTransfer $priceProductScheduledApplyRequestTransfer
+    ): PriceProductScheduledApplyResponseTransfer;
 
     /**
      * Specification:
