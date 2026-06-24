@@ -13,6 +13,8 @@ use Spryker\Zed\Kernel\AbstractBundleConfig;
 class PriceProductScheduleConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\PriceProduct\PriceProductConfig::PRICE_DIMENSION_DEFAULT
      *
      * @var string
@@ -20,6 +22,8 @@ class PriceProductScheduleConfig extends AbstractBundleConfig
     public const PRICE_DIMENSION_DEFAULT = 'PRICE_DIMENSION_DEFAULT';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\PriceProduct\PriceProductConfig::PRICE_TYPE_DEFAULT
      *
      * @var string
@@ -27,6 +31,8 @@ class PriceProductScheduleConfig extends AbstractBundleConfig
     public const PRICE_TYPE_DEFAULT = 'DEFAULT';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const PRICE_TYPE_ORIGINAL = 'ORIGINAL';
