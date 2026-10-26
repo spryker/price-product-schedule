@@ -201,6 +201,7 @@
     </transfer>
 
     <transfer name="Error">
+        <property name="message" type="string"/>
     </transfer>
 
 </transfers>
